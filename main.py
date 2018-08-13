@@ -34,7 +34,7 @@ class LoginHandler(webapp2.RequestHandler):
 
 class NotficationsHandler(webapp2.RequestHandler):
     def get(self):
-        notifications_template = jinja_env.get_template("templates/notification.html")
+        notifications_template = jinja_env.get_template("templates/notifications.html")
         self.response.write(notifications_template.render())
 
 app = webapp2.WSGIApplication ([
