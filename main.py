@@ -14,7 +14,6 @@ class FeedHandler(webapp2.RequestHandler):
 
 class SettingsHandler(webapp2.RequestHandler):
     def get(self):
-<<<<<<< HEAD
         template = jinja_env.get_template("templates/settings-page.html")
         self.response.write(template.render())
 
