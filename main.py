@@ -14,27 +14,27 @@ class MainHandler(webapp2.RequestHandler):
 class SettingsHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_env.get_template("templates/settings-page.html")
-        self.response.write("")
+        self.response.write(template.render())
 
 class ProfileHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_env.get_template("templates/profile-page.html")
-        self.response.write("")
+        self.response.write(template.render())
 
 class SearchHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_env.get_templates("templates/search-page.html")
-        self.response.write("")
+        self.response.write(template.render())
 
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_env.get_template("templates/login-page.html")
-        self.response.write("")
+        self.response.write(template.render())
 
 class NotficationsHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_env.get_template("templates/notification-page.html")
-        self.response.write("")
+        self.response.write (template.render())
 
 app = webapp2.WSGIApplication ([
 ('/', MainHandler),
