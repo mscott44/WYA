@@ -9,6 +9,8 @@ handlers:
   static_dir: media
 - url: /.* #.* should always be first (order matters)
   script: main.app
+- url: /scripts
+  static_dir: scripts
 
 libraries:
 - name: webapp2
