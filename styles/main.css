@@ -9,16 +9,29 @@ body{
 #header{
   grid-column: 1 / span 3;
   grid-row: 1;
+  background: grey;
   padding: 10px;
-  background-image: linear-gradient(to left, #c6174f, #db3e41, #e86231, #ed8420, #eba712);
 }
 
-#menu{
+#menu {
   grid-column: 1;
   grid-row: 2 / span 2;
   background-color: white;
   border-right: 1px black solid;
-  padding: 10px 20px;
+  padding: 0px 25px;
+  line-height:6.3;
+  font-size: 100%
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: orange
+}
+
+a:hover {
+  text-decoration: none;
+  color: pink
 }
 
 #main{
@@ -31,29 +44,30 @@ body{
 #miniprofile , #friends{
   grid-column: 3;
   grid-row: 2 / span 2;
-  background-color: white;
-  border-left: 1px black solid;
+  background-color: lightblue;
   padding: 10px;
 }
 
 #chat{
   grid-row: 3;
   grid-column: 3;
-  background-color: white;
+  background-color:darkgreen;
   padding: 10px;
-  border-left: 1px black solid;
-  border-top: 1px black solid;
 }
 
 #footer{
   grid-column: 1 / span 3;
   grid-row: 4;
-  background-color: white;
+  background-color: orange;
   padding: 0px 10px;
-  border-top: 1px black solid;
 }
+<<<<<<< HEAD
+#login{
+background-color: black;
+=======
 #login {
-background color:
+background color: lightblue;
+>>>>>>> 96fd7ed6dd21f24dac1524fca024fcd36cee70b1
 }
 
 /* LOGIN PAGE CSS */
