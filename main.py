@@ -42,6 +42,6 @@ app = webapp2.WSGIApplication ([
 ('/settings', SettingsHandler),
 ('/profile', ProfileHandler),
 ('/search', SearchHandler),
-('/', LoginHandler),
+('/login', LoginHandler),
 ('/notifications' , NotficationsHandler)
 ], debug = True)
