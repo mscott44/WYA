@@ -50,7 +50,7 @@ class LoginHandler(webapp2.RequestHandler):
 class FeedHandler(webapp2.RequestHandler):
     def get(self):
         feed_template = jinja_current_directory.get_template("templates/feed.html")
-        self.response.write(feed_template.render())
+        self.response.write(feed_template.render({ "sign_out": logout_url }))
 
     def post(self):
         user = users.get_current_user()
