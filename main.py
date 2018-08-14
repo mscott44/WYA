@@ -38,10 +38,10 @@ class NotficationsHandler(webapp2.RequestHandler):
         self.response.write(notifications_template.render())
 
 app = webapp2.WSGIApplication ([
-('/', FeedHandler),
+('/feed', FeedHandler),
 ('/settings', SettingsHandler),
 ('/profile', ProfileHandler),
 ('/search', SearchHandler),
-('/login', LoginHandler),
+('/', LoginHandler),
 ('/notifications' , NotficationsHandler)
 ], debug = True)
