@@ -1,6 +1,7 @@
 import webapp2
 import os
 import jinja2
+import time
 import webapp2
 from models import Post, User
 from content_management import populate_feed, logout_url, login_url
@@ -44,74 +45,53 @@ class LoginHandler(webapp2.RequestHandler):
             # ask user to sign in to google
             self.response.write(google_login_template.render({ "login_url": login_url }))
 
-#        if user:
-#            email_address = user.nickname()
-#            returning_user = ReturningUser.get_by_id(user.user_id())
-#            signout_link_html = '<a href="%s">sign out</a>' % (
-#                users.create_logout_url('/'))
-#            # If the user has previously been to our site, we greet them!
-#            if returning_user:
-#                self.response.write('''
-#                    Welcome %s %s (%s)! <br> %s <br>''' % (
-#                        returning_user.first_name,
-#                        returning_user.last_name,
-#                        email_address,
-#                        signout_link_html))
-#        # If the user hasn't been to our site, we ask them to sign up
-#            else:
-#                self.response.write('''
-#                    Welcome to our site, %s!  Please sign up! <br>
-#                    <form method="post" action="/">
-#                    <input type="text" name="first_name">
-#                    <input type="text" name="last_name">
-#                    <input type="submit">
-#                    </form><br> %s <br>
-#                    ''' % (email_address, signout_link_html))
-#        # Otherwise, the user isn't logged in!
-#        else:
-#            self.response.write('''
-#                Please log in to use our site! <br>
-#                <a href="%s">Sign in</a>''' % (
-#                    users.create_login_url('/')))
-
-    def post(self):
-        user = users.get_current_user()
-        if not user:
-            # You shouldn't be able to get here without being logged in
-            self.error(500)
-            return
-        returning_user = ReturningUser(
-            first_name=self.request.get('first_name'),
-            last_name=self.request.get('last_name'),
-            id=user.user_id())
-        returning_user.put()
-        self.response.write('Thanks for signing up, %s!' %
-            returning_user.first_name)
 #LOGIN STUFF ENDS HERE
 
 class FeedHandler(webapp2.RequestHandler):
     def get(self):
-        feed_template = jinja_env.get_template("templates/feed.html")
+        feed_template = jinja_current_directory.get_template("templates/feed.html")
         self.response.write(feed_template.render())
+
+    def post(self):
+        user = users.get_current_user()
+        if user is None:
+            self.redirect('/')
+            return # lol idk if this is ok?? it works I guess
+        current_user = User.query().filter(User.email == user.email()).get()
+        if not current_user:
+            # upon new user form submission, create new user and store in datastore
+            new_user_entry = User(
+                name = self.request.get("name"),
+                username = self.request.get("username"),
+                email = user.email(),
+            )
+            new_user_entry.put()
+            current_user = new_user_entry
+        else:
+            # if not a new user, existing user submitted a post from feed
+            new_post = Post(author= current_user.key, content= self.request.get("user_post"))
+            new_post.put()
+        time.sleep(.2)
+        self.redirect('/feed')
 
 class SettingsHandler(webapp2.RequestHandler):
     def get(self):
-        settings_template = jinja_env.get_template("templates/settings.html")
+        settings_template = jinja_current_directory.get_template("templates/settings.html")
         self.response.write(settings_template.render())
 
 class ProfileHandler(webapp2.RequestHandler):
     def get(self):
-        profile_template = jinja_env.get_template("templates/profile.html")
+        profile_template = jinja_current_directory.get_template("templates/profile.html")
         self.response.write(profile_template.render())
 
 class SearchHandler(webapp2.RequestHandler):
     def get(self):
-        search_template = jinja_env.get_template("templates/search.html")
+        search_template = jinja_current_directory.get_template("templates/search.html")
         self.response.write(search_template.render())
 
 class NotficationsHandler(webapp2.RequestHandler):
     def get(self):
-        notifications_template = jinja_env.get_template("templates/notifications.html")
+        notifications_template = jinja_current_directory.get_template("templates/notifications.html")
         self.response.write(notifications_template.render())
 
 app = webapp2.WSGIApplication ([
