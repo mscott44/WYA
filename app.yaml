@@ -15,3 +15,5 @@ libraries:
   version: latest
 - name: jinja2
   version: latest
+- name: oauth2client
+  version: latest
