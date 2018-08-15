@@ -1,7 +1,7 @@
 body{
   display: grid;
   grid-template-columns: 150px auto 200px;
-  grid-template-rows: 80px auto 275px 50px;
+  grid-template-rows: 100px auto 275px 50px;
   margin: 0;
   height: 100vh;
 }
@@ -10,11 +10,9 @@ body{
   grid-column: 1 / span 3;
   grid-row: 1;
   background: white;
-  padding: 10px;
   font-size: 35px;
-  font-family: impact;
-  text-align: center;
-  background-image: url("/media/giphy.gif");
+  /*background-image: url("/media/giphy.gif");*/
+  background-image: linear-gradient(to right, #f79393, #f87f83, #f86a75, #f75267, #f5325a);
 }
 
 #menu {
@@ -24,23 +22,25 @@ body{
   border-right: 1px black solid;
   padding: 10px 20px;
   padding: 0px 25px;
-  line-height:6.3;
-  font-size: 100%
+  line-height: 5;
+  font-size: 100%;
+  background-color: white;
+  font-family: 'Raleway', sans-serif;
 }
  a {
   text-decoration: none;
   font-weight: bold;
-  color: teal
+  color: black;
 }
  a:hover {
   text-decoration: none;
-  color: pink
+  color: #f5325a;
 }
 
 #menu{
   grid-column: 1;
   grid-row: 2 / span 2;
-  background: linear-gradient(white, grey, white);
+  /*background: linear-gradient(white, grey, white);*/
   padding: 10px 20px;
 }
 
@@ -55,25 +55,40 @@ a:hover{}
   grid-row: 2 / span 2;
   background-color: white;
   padding: 10px 10px;
+  font-family: 'Raleway', sans-serif;
 }
 
 #miniprofile , #friends{
   grid-column: 3;
   grid-row: 2 / span 2;
-  background: linear-gradient(white, blue, white, white);
+  /*background: linear-gradient(white, blue, white, white);*/
   padding: 10px;
+  background-color: white;
+  border-left: 1px black solid;
+  font-family: 'Raleway', sans-serif;
 }
 
 #chat{
   grid-row: 3;
   grid-column: 3;
-  background: linear-gradient(white, pink, white);
+  /*background: linear-gradient(white, pink, white);*/
   padding: 10px;
+  background-color: white;
+  border-left: 1px black solid;
+  border-top: 1px black solid;
+  font-family: 'Raleway', sans-serif;
 }
 
 #footer{
   grid-column: 1 / span 3;
   grid-row: 4;
-  background: linear-gradient(to right, white, blue, white);
+  /*background: linear-gradient(to right, white, blue, white);*/
   padding: 0px 10px;
+  background-color: #ffd966ff;
+  font-family: 'Raleway', sans-serif;
+}
+
+#logo{
+  height: 80px;
+  padding: 10px;
 }
