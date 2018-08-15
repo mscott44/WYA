@@ -1,12 +1,53 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<title>Chat</title>
-<head>
+<html lang"en" dir="ltr">
+ <head>
+   <link rel="shortcut icon" href="/media/favicon.png" />
+   <link rel="stylesheet" href="/styles/main.css"/>
+   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+   <meta charset="utf-8">
+
+   <title>Chat</title>
 </head>
 <body>
-  <h1>Chat</h1>
-  <textarea id="message"></textarea>
-  <button id="myButton">Send message</button>
-  <ul id="messages"></ul>
+  <section id="header">
+    <img id="logo" src="media/logo.png" alt="logo"/>
+  </section>
+  <section id="menu">
+    <p>
+        <p><a href="/feed">Feed</a></p>
+        <p><a href="/chatroom">Chat</a></p>
+        <p><a href="/profile">Profile</a></p>
+        <p><a href="/search">Search</a></p>
+        <p><a href="/settings">Settings</a></p>
+        <p><a href="/notifications">Notifications</a></p>
+        <p><a href="{{ sign_out }}">Sign out</a></p>
+
+    </p>
+  </section>
+
+  <section id="main">
+    <p>CHAT</p>
+    <textarea id="message"></textarea>
+    <button id="myButton">Send message</button>
+    <ul id="messages"></ul>
+  </section>
+
+  <section id="miniprofile">
+    <p>MINIPROF</p>
+    <img id="profPic" src="https://pikmail.herokuapp.com/{{ email }}?size=100" onerror="imgError(this);"/>
+
+  </section>
+
+  <section id="chat">
+    <p>CHAT</p>
+
+  </section>
+
+  <section id="footer">
+    <p>FOOTER</p>
+  </section>
+  <script src="/static/main.js"></script>
+
   <script src="/static/app.js"></script>
 </body>
+</html>
