@@ -1,8 +1,7 @@
 body {
   background-color: white;
-  text-align: center;
   color: black;
-  background-image: url("/media/colorful.jpg");
+  background-image: url("/templates/login.html");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -16,9 +15,27 @@ body {
   font-family: impact;
   text-shadow: 2px 2px 2px black;
   padding: 50px 20px 10px 20px;
+  position: absolute;
+  width:160px;
+  min-height:40px;
+  z-index:300000;
+  bottom:10px;
+  left:10px;
+  margin-left: 800px;
 }
 
 a {
   text-decoration: none;
   color: white;
+}
+#title {
+position: absolute;
+width:160px;
+min-height:40px;
+background-color:#dadada;
+z-index:300000;
+bottom:10px;
+left:10px;
+text-align:center;
+margin-left: 800px;
 }
