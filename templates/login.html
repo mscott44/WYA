@@ -6,6 +6,35 @@
     <title>Login</title>
   </head>
   <body>
+    <div id="muteYouTubeVideoPlayer"> </div>
+
+<script async src="https://www.youtube.com/iframe_api" ></script>
+<script>
+ function onYouTubeIframeAPIReady() {
+  var player;
+  player = new YT.Player('muteYouTubeVideoPlayer', {
+    videoId: 'RiflrSmMYq0', // YouTube Video ID
+    width: 1700,               // Player width (in px)
+    height: 1000,              // Player height (in px)
+    playerVars: {
+      autoplay: 1,        // Auto-play the video on load
+      controls: 1,        // Show pause/play buttons in player
+      showinfo: 0,        // Hide the video title
+      modestbranding: 1,  // Hide the Youtube Logo
+      loop: 1,            // Run the video in a loop
+      fs: 0,              // Hide the full screen button
+      cc_load_policy: 0, // Hide closed captions
+      iv_load_policy: 3,  // Hide the Video Annotations
+      autohide: 0         // Hide video controls when playing
+    },
+    events: {
+      onReady: function(e) {
+        e.target.mute();
+      }
+    }
+  });
+ }
+</script>
     <div id="background_image">
       <h1 id="title">WYA</h1>
       <section id="login_link"><h2><a href="{{ login_url }}">Sign in</a></h2></section>
