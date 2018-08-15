@@ -5,9 +5,46 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
     <meta charset="utf-8">
+<<<<<<< HEAD
+    <title> WYA </title>
+=======
     <title>WYA Login</title>
+>>>>>>> d05654d8f353e3108faba71c3d20cbb2f0220095
   </head>
   <body>
+    <img src="favicon.png" alt="Favicon" style= "width:150px">
+    <div id="muteYouTubeVideoPlayer"> </div>
+
+<script async src="https://www.youtube.com/iframe_api" ></script>
+<script>
+ function onYouTubeIframeAPIReady() {
+  var player;
+  player = new YT.Player('muteYouTubeVideoPlayer', {
+    videoId: 'RiflrSmMYq0',
+    width: 1700,
+    height: 1000,
+    playerVars: {
+      autoplay: 1,
+      controls: 1,
+      showinfo: 0,
+      modestbranding: 1,
+      loop: 0,
+      fs: 0,
+      cc_load_policy: 0,
+      iv_load_policy: 3,
+      autohide: 0,
+      start: 14,
+      end: 127,
+      controls: 0,
+    },
+    events: {
+      onReady: function(e) {
+        e.target.mute();
+      }
+    }
+  });
+ }
+</script>
     <div id="background_image">
       <img id="loginlogo" src="media/logo.png" alt="logo"/>
       <section id="login_link"><h2><a href="{{ login_url }}">Sign in</a></h2></section>

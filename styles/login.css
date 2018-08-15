@@ -1,9 +1,11 @@
 body {
   background-color: white;
-  text-align: center;
   color: black;
+<<<<<<< HEAD
+=======
   /*background-image: url("/media/colorful.jpg");*/
   background-color: #f79393;
+>>>>>>> d05654d8f353e3108faba71c3d20cbb2f0220095
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -18,13 +20,43 @@ body {
 #login_link {
   grid-row: 2;
   color: white;
-  font-size: 30px;
+  font-size: 100px;
   font-family: impact;
   text-shadow: 2px 2px 2px black;
-  padding: 50px 20px 10px 20px;
+  width:160px;
+  position: absolute;
+  min-height:40px;
+  z-index:300000;
+  bottom:10px;
+  left:10px;
+  margin-left: 800px;
 }
 
 a {
   text-decoration: none;
   color: white;
+  text-shadow: 10px 10px black;
+}
+#title {
+position: absolute;
+color: black;
+width:160px;
+min-height:40px;
+z-index:300000;
+bottom:10px;
+left:10px;
+text-align:center;
+margin-left: 800px;
+font-family: impact;
+font-size: 100px;
+text-shadow: 10px 10px white;
+}
+#loginlogo {
+  position: absolute;
+  min-height:40px;
+  z-index:300000;
+  bottom:10px;
+  left:10px;
+  margin-left: 800px;
+  font-size:
 }
