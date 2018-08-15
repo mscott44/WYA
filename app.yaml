@@ -7,6 +7,8 @@ threadsafe: true
 handlers:
 - url: /styles
   static_dir: styles
+- url: /scripts
+  static_dir: scripts
 - url: /media
   static_dir: media
 - url: /scripts

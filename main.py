@@ -85,6 +85,11 @@ class SettingsHandler(webapp2.RequestHandler):
         settings_template = jinja_current_directory.get_template("templates/settings.html")
         self.response.write(settings_template.render({ "sign_out": logout_url }))
 
+class ChatroomHandler(webapp2.RequestHandler):
+    def get(self):
+        settings_template = jinja_current_directory.get_template("templates/chatroom.html")
+        self.response.write(settings_template.render({ "sign_out": logout_url}))
+
 class ProfileHandler(webapp2.RequestHandler):
     def get(self):
         profile_template = jinja_current_directory.get_template("templates/profile.html")
@@ -102,6 +107,7 @@ class NotficationsHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication ([
 ('/', LoginHandler),
+('/chatroom', ChatroomHandler),
 ('/feed', FeedHandler),
 ('/settings', SettingsHandler),
 ('/profile', ProfileHandler),
