@@ -1,10 +1,20 @@
 body {
   background-color: white;
   color: black;
+<<<<<<< HEAD
+=======
+  /*background-image: url("/media/colorful.jpg");*/
+  background-color: #f79393;
+>>>>>>> d05654d8f353e3108faba71c3d20cbb2f0220095
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   grid-template-rows: 1fr auto 1fr;
+}
+
+#loginlogo {
+  text-align: center;
+  height: 100px;
 }
 
 #login_link {
@@ -41,6 +51,12 @@ font-family: impact;
 font-size: 100px;
 text-shadow: 10px 10px white;
 }
-img {
+#loginlogo {
   position: absolute;
+  min-height:40px;
+  z-index:300000;
+  bottom:10px;
+  left:10px;
+  margin-left: 800px;
+  font-size:
 }

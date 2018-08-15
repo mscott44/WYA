@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link rel="shortcut icon" href="/media/favicon.png" />
     <link rel="stylesheet" href="/styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <meta charset="utf-8">
+
     <title></title>
   </head>
   <body>
 
     <section id="header">
-      <p>HEADER</p>
+      <img id="logo" src="media/logo.png" alt="logo"/>
     </section>
 
     <section id="menu">
       <p>
           <p><a href="/feed">Feed</a></p>
+          <p><a href="/chatroom">Chat</a></p>
           <p><a href="/profile">Profile</a></p>
           <p><a href="/search">Search</a></p>
-          <p><a href="/settings">Settings</a></p>
           <p><a href="/notifications">Notifications</a></p>
           <p><a href="{{ sign_out }}">Sign out</a></p>
       </p>
     </section>
 
     <section id="main">
-      <p><iframe src="https://calendar.google.com/calendar/embed?src=h7i5i7rf6jqkc95fi34ea3jqjo%40group.calendar.google.com&ctz=America%2FLos_Angeles" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe></p>
+      <p><iframe src="https://calendar.google.com/calendar/embed?src={{ email }}&ctz=America%2FLos_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe></p>
+
     </section>
 
     <section id="miniprofile">
-      <p>MINIPROF</p>
-    </section>
-
-    <section id="chat">
-      <p>CHAT</p>
+      <p></p>
+      <img id="profPic" src="https://pikmail.herokuapp.com/{{ email }}?size=100" onerror="imgError(this);"/>
     </section>
 
     <section id="footer">
-      <p>FOOTER</p>
+      <p>Where You At ©</p>
     </section>
-
+    <script src="/static/main.js"></script>
   </body>
+
 </html>
