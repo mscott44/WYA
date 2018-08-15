@@ -92,8 +92,15 @@ class ChatroomHandler(webapp2.RequestHandler):
 
 class ProfileHandler(webapp2.RequestHandler):
      def get(self):
-         profile_template = jinja_current_directory.get_template("templates/profile.html")
-         self.response.write(profile_template.render({ "sign_out": logout_url }))
+        user = users.get_current_user()
+        current_user = User.query().filter(User.email == user.email()).get()
+        fields = {
+            "username": current_user.username,
+            "sign_out": logout_url,
+            "email" : current_user.email
+        }
+        profile_template = jinja_current_directory.get_template("templates/profile.html")
+        self.response.write(profile_template.render(fields))
 
 class SearchHandler(webapp2.RequestHandler):
      def get(self):
