@@ -14,24 +14,29 @@ body{
   /*background-image: url("/media/giphy.gif");*/
   background-image: linear-gradient(to right, #f79393, #f87f83, #f86a75, #f75267, #f5325a);
 }
-.center {
+.center{
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 60%;
 }
-#user_info {
-    color: black;
-    background-color: #f79393;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 0px;
-    font-size: 10px;
+#user_info{
+  color: black;
+  background-color: #f79393;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 0px;
+  font-size: 10px;
 }
-#profPic {
+
+#about_content{
+  font-size: 12px;
+}
+
+#profPic{
   align-content: center
 }
-#menu {
+#menu{
   grid-column: 1;
   grid-row: 2;
   background-color: white;
@@ -85,6 +90,27 @@ a:hover{}
   background-color: #ffd966ff;
   font-family: 'Raleway', sans-serif;
   text-align: right;
+}
+.header {
+	font-family:'Raleway', sans-serif;
+	font-size: 60px;
+	font-weight:  100;
+	letter-spacing: 2px;
+	text-align: left;
+	color: #f35626;
+	background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-animation: hue 10s infinite linear;
+}
+
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
 }
 
 #logo{
