@@ -57,6 +57,7 @@ class FeedHandler(webapp2.RequestHandler):
        user = users.get_current_user()
        current_user = User.query().filter(User.email == user.email()).get()
        fields = {
+            "name": current_user.name,
             "username": current_user.username,
             "sign_out": logout_url,
             "email" : current_user.email
@@ -90,6 +91,7 @@ class ChatroomHandler(webapp2.RequestHandler):
          user = users.get_current_user()
          current_user = User.query().filter(User.email == user.email()).get()
          fields = {
+            "name": current_user.name,
             "username": current_user.username,
             "sign_out": logout_url,
             "email" : current_user.email
@@ -102,6 +104,7 @@ class ProfileHandler(webapp2.RequestHandler):
          user = users.get_current_user()
          current_user = User.query().filter(User.email == user.email()).get()
          fields = {
+              "name": current_user.name,
               "username": current_user.username,
               "sign_out": logout_url,
               "email" : current_user.email
@@ -114,6 +117,7 @@ class SearchHandler(webapp2.RequestHandler):
          user = users.get_current_user()
          current_user = User.query().filter(User.email == user.email()).get()
          fields = {
+              "name": current_user.name,
               "username": current_user.username,
               "sign_out": logout_url,
               "email" : current_user.email
@@ -126,6 +130,7 @@ class NotficationsHandler(webapp2.RequestHandler):
          user = users.get_current_user()
          current_user = User.query().filter(User.email == user.email()).get()
          fields = {
+              "name": current_user.name,
               "username": current_user.username,
               "sign_out": logout_url,
               "email" : current_user.email

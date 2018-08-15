@@ -18,14 +18,15 @@ body{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 60%;
 }
 #user_info {
     color: black;
-    background-image: linear-gradient(to right top, #ebe216, #ffb300, #ff8227, #fb4f45, #e1175e);
+    background-color: #f79393;
     padding: 10px;
     margin: 10px;
     border-radius: 0px;
+    font-size: 10px;
 }
 #profPic {
   align-content: center
@@ -83,6 +84,7 @@ a:hover{}
   padding: 0px 10px;
   background-color: #ffd966ff;
   font-family: 'Raleway', sans-serif;
+  text-align: right;
 }
 
 #logo{
