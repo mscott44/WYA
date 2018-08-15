@@ -47,6 +47,12 @@ class LoginHandler(webapp2.RequestHandler):
 
 #LOGIN STUFF ENDS HERE
 
+class CalendarHandler(webapp2.RequestHandler):
+    def get(self):
+        index_template = jinja_current_directory.get_template("templates/index.html")
+        self.response.write(index_template.render())
+
+
 class FeedHandler(webapp2.RequestHandler):
     def get(self):
         feed_template = jinja_current_directory.get_template("templates/feed.html")
@@ -100,5 +106,6 @@ app = webapp2.WSGIApplication ([
 ('/settings', SettingsHandler),
 ('/profile', ProfileHandler),
 ('/search', SearchHandler),
-('/notifications' , NotficationsHandler)
+('/notifications' , NotficationsHandler),
+('/index', CalendarHandler)
 ], debug = True)
