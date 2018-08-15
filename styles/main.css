@@ -93,10 +93,13 @@ a:hover{}
 }
 
 #messagessection{
-  background-color: #ffd966ff;
+  background-color: white;
   width: auto;
   height: auto;
   padding: 20px;
+  overflow: auto;
+  width: 1125px;
+  height: 420px
 }
 
 #messages{
