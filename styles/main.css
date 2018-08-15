@@ -92,3 +92,16 @@ a:hover{}
   height: 80px;
   padding: 10px;
 }
+
+#messagessection{
+  background-color: #ffd966ff;
+  width: auto;
+  height: auto;
+  padding: 20px;
+}
+
+#messages{
+  background-color: white;
+  line-height: 2;
+  list-style-type: none;
+}
