@@ -26,7 +26,15 @@
   </section>
 
   <section id="main">
-    <p>CHAT</p>
+    <p><h1 class="header">Chat</h1></p>
+    <p> To:
+    <select id="userDropdown">
+     {% for user in all_users %}
+        <option>{{ user.name }}</option>
+      {% endfor %}
+    </select>
+    </p>
+
     <section id="messagessection">
       <ul id="messages"></ul>
     </section>
@@ -39,10 +47,9 @@
     <p></p>
     <img class="center" src="https://pikmail.herokuapp.com/{{ email }}?size=100" onerror="imgError(this);"/>
     <section id="console">
-      <div id="user_info">
-          <h2 class="user_info_content" id="user_name">{{ name }}</h2>
-          <h2 class="user_info_content" id="username">@{{ username }}</h2>
-      </div>
+            <div id="user_info">
+                <h2 class="user_info_content" id="user_name">Name: {{ name }}</h2>
+                <h2 class="user_info_content">Username: <span id="username">{{ username }}</span></h2>
 
       <p></p>
 
@@ -53,13 +60,15 @@
         {% endfor %}
       </div>
     </section>
+    {{all_users}}
   </section>
 
   <section id="footer">
     <p>Where You At ©</p>
   </section>
   <script src="/static/main.js"></script>
-
   <script src="/static/app.js"></script>
+
+
 </body>
 </html>
