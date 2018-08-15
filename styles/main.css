@@ -9,18 +9,18 @@ body{
 #header{
   grid-column: 1 / span 3;
   grid-row: 1;
-  background: grey;
+  background: white;
   padding: 10px;
-  text-align: center;
-  font-size: 20px;
+  font-size: 35px;
   font-family: impact;
+  text-align: center;
+  background-image: url("/media/giphy.gif");
 }
 
 #menu{
   grid-column: 1;
   grid-row: 2 / span 2;
-  background-color: white;
-  border-right: 1px black solid;
+  background: linear-gradient(white, grey, white);
   padding: 10px 20px;
 }
 
@@ -34,20 +34,20 @@ body{
 #miniprofile , #friends{
   grid-column: 3;
   grid-row: 2 / span 2;
-  background-color: lightblue;
+  background: linear-gradient(white, blue, white, white);
   padding: 10px;
 }
 
 #chat{
   grid-row: 3;
   grid-column: 3;
-  background-color:darkgreen;
+  background: linear-gradient(white, pink, white);
   padding: 10px;
 }
 
 #footer{
   grid-column: 1 / span 3;
   grid-row: 4;
-  background-color: orange;
+  background: linear-gradient(to right, white, blue, white);
   padding: 0px 10px;
 }
