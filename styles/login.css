@@ -1,7 +1,6 @@
 body {
   background-color: white;
   color: black;
-  background-image: url("/templates/login.html");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -14,9 +13,8 @@ body {
   font-size: 100px;
   font-family: impact;
   text-shadow: 2px 2px 2px black;
-  padding: 50px 20px 10px 20px;
-  position: absolute;
   width:160px;
+  position: absolute;
   min-height:40px;
   z-index:300000;
   bottom:10px;
@@ -27,15 +25,22 @@ body {
 a {
   text-decoration: none;
   color: white;
+  text-shadow: 10px 10px black;
 }
 #title {
 position: absolute;
+color: black;
 width:160px;
 min-height:40px;
-background-color:#dadada;
 z-index:300000;
 bottom:10px;
 left:10px;
 text-align:center;
 margin-left: 800px;
+font-family: impact;
+font-size: 100px;
+text-shadow: 10px 10px white;
+}
+img {
+  position: absolute;
 }
