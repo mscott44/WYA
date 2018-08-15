@@ -77,22 +77,22 @@ class FeedHandler(webapp2.RequestHandler):
 class SettingsHandler(webapp2.RequestHandler):
     def get(self):
         settings_template = jinja_current_directory.get_template("templates/settings.html")
-        self.response.write(settings_template.render())
+        self.response.write(settings_template.render({ "sign_out": logout_url }))
 
 class ProfileHandler(webapp2.RequestHandler):
     def get(self):
         profile_template = jinja_current_directory.get_template("templates/profile.html")
-        self.response.write(profile_template.render())
+        self.response.write(profile_template.render({ "sign_out": logout_url }))
 
 class SearchHandler(webapp2.RequestHandler):
     def get(self):
         search_template = jinja_current_directory.get_template("templates/search.html")
-        self.response.write(search_template.render())
+        self.response.write(search_template.render({ "sign_out": logout_url }))
 
 class NotficationsHandler(webapp2.RequestHandler):
     def get(self):
         notifications_template = jinja_current_directory.get_template("templates/notifications.html")
-        self.response.write(notifications_template.render())
+        self.response.write(notifications_template.render({ "sign_out": logout_url }))
 
 app = webapp2.WSGIApplication ([
 ('/', LoginHandler),
