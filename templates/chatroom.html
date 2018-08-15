@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang"en" dir="ltr">
  <head>
@@ -34,7 +35,13 @@
   <section id="miniprofile">
     <p>MINIPROF</p>
     <img id="profPic" src="https://pikmail.herokuapp.com/{{ email }}?size=100" onerror="imgError(this);"/>
+    <section id="console">
+            <div id="user_info">
+                <h2 class="user_info_content" id="user_name">Name: {{ user_name }}</h2>
+                <h2 class="user_info_content" id="username">Username: {{ username }}</h2>
 
+            </div>
+    </section>
   </section>
 
   <section id="chat">

@@ -84,30 +84,54 @@ class FeedHandler(webapp2.RequestHandler):
              new_post.put()
          time.sleep(.2)
          self.redirect('/feed')
-class SettingsHandler(webapp2.RequestHandler):
-     def get(self):
-         settings_template = jinja_current_directory.get_template("templates/settings.html")
-         self.response.write(settings_template.render({ "sign_out": logout_url }))
 
 class ChatroomHandler(webapp2.RequestHandler):
      def get(self):
+         user = users.get_current_user()
+         current_user = User.query().filter(User.email == user.email()).get()
+         fields = {
+            "username": current_user.username,
+            "sign_out": logout_url,
+            "email" : current_user.email
+          }
          template = jinja_current_directory.get_template("templates/chatroom.html")
-         self.response.write(template.render({ "sign_out": logout_url}))
+         self.response.write(template.render(fields))
 
 class ProfileHandler(webapp2.RequestHandler):
      def get(self):
+         user = users.get_current_user()
+         current_user = User.query().filter(User.email == user.email()).get()
+         fields = {
+              "username": current_user.username,
+              "sign_out": logout_url,
+              "email" : current_user.email
+          }
          profile_template = jinja_current_directory.get_template("templates/profile.html")
-         self.response.write(profile_template.render({ "sign_out": logout_url }))
+         self.response.write(profile_template.render(fields))
 
 class SearchHandler(webapp2.RequestHandler):
      def get(self):
+         user = users.get_current_user()
+         current_user = User.query().filter(User.email == user.email()).get()
+         fields = {
+              "username": current_user.username,
+              "sign_out": logout_url,
+              "email" : current_user.email
+          }
          search_template = jinja_current_directory.get_template("templates/search.html")
-         self.response.write(search_template.render({ "sign_out": logout_url }))
+         self.response.write(search_template.render(fields))
 
 class NotficationsHandler(webapp2.RequestHandler):
      def get(self):
+         user = users.get_current_user()
+         current_user = User.query().filter(User.email == user.email()).get()
+         fields = {
+              "username": current_user.username,
+              "sign_out": logout_url,
+              "email" : current_user.email
+          }
          notifications_template = jinja_current_directory.get_template("templates/notifications.html")
-         self.response.write(notifications_template.render({ "sign_out": logout_url }))
+         self.response.write(notifications_template.render(fields))
 
 class Message(ndb.Model):
     content = ndb.StringProperty()
@@ -158,7 +182,6 @@ app = webapp2.WSGIApplication ([
 ('/', LoginHandler),
 ('/chatroom', ChatroomHandler),
 ('/feed', FeedHandler),
-('/settings', SettingsHandler),
 ('/profile', ProfileHandler),
 ('/search', SearchHandler),
 ('/notifications' , NotficationsHandler),
