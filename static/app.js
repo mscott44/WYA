@@ -13,8 +13,13 @@ function sendMessageClicked() {
 function postMessage() {
   // Call fetch on the chat api.
   const textarea = document.querySelector('#message');
+  const dropdown = document.querySelector("#userDropdown")
+  const receiver = dropdown.options[dropdown.selectedIndex].value;
+  const sender = document.querySelector("#username").innerHTML;
   const message = textarea.value;
-  return fetch('./chat?from=213&to=562&content=' + encodeURI(message), {
+  console.log(`Sending message from ${sender} to ${receiver}`);
+
+  return fetch(`./chat?from=${encodeURI(sender)}&to=${encodeURI(receiver)}&content=${encodeURI(message)}`, {
     method: 'POST'
   }).then(function() {
     textarea.value = '';
@@ -32,7 +37,7 @@ function refreshMessages(from, to) {
         messagesDiv.innerHTML = '';
         messages.forEach(function(message) {
           const li = document.createElement('li');
-          li.innerHTML = message.content;
+          li.innerHTML = `To: ${message.receiver} From: ${message.sender}: ${message.content}`;
           messagesDiv.append(li);
         });
       });

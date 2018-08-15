@@ -9,11 +9,13 @@ class Post(ndb.Model):
     author = ndb.KeyProperty(User, required=True)
     content = ndb.StringProperty(required=True)
     time = ndb.DateTimeProperty(auto_now_add=True)
-    
+
 class Message(ndb.Model):
     content = ndb.StringProperty()
     timestamp = ndb.DateTimeProperty(auto_now_add=True)
+    sender = ndb.StringProperty()
+    receiver = ndb.StringProperty()
 
     @classmethod
-    def query_conversation(cls, ancestor_key):
-        return cls.query(ancestor=ancestor_key).order(-cls.timestamp)
+    def query_conversation(cls):
+        return cls.query().order(-cls.timestamp)
