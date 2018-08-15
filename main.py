@@ -3,6 +3,7 @@ import jinja2
 import json
 import os
 import webapp2
+import time
 
 from models import Post, User
 from content_management import populate_feed, logout_url, login_url
@@ -29,9 +30,9 @@ class LoginHandler(webapp2.RequestHandler):
 
          if user:
             # look for user in datastore
-            existing_user = User.query().filter(User.email == user.email()).get()
+            user_in_database = User.query().filter(User.email == user.email()).get()
             nickname = user.nickname()
-            if not existing_user:
+            if not user_in_database:
                 # prompt new users to sign up
                 fields = {
                     "nickname": nickname,
@@ -45,16 +46,12 @@ class LoginHandler(webapp2.RequestHandler):
            # ask user to sign in to google
            self.response.write(google_login_template.render({ "login_url": login_url }))
 
-<<<<<<< HEAD
  #LOGIN STUFF ENDS HERE
-=======
 class CalendarHandler(webapp2.RequestHandler):
     def get(self):
         index_template = jinja_current_directory.get_template("templates/index.html")
         self.response.write(index_template.render())
 
-
->>>>>>> d93363a37a9a9c12e4da84ce3e7769923636846d
 class FeedHandler(webapp2.RequestHandler):
    def get(self):
        user = users.get_current_user()
@@ -94,8 +91,8 @@ class SettingsHandler(webapp2.RequestHandler):
 
 class ChatroomHandler(webapp2.RequestHandler):
      def get(self):
-         settings_template = jinja_current_directory.get_template("templates/chatroom.html")
-         self.response.write(settings_template.render({ "sign_out": logout_url}))
+         template = jinja_current_directory.get_template("templates/chatroom.html")
+         self.response.write(template.render({ "sign_out": logout_url}))
 
 class ProfileHandler(webapp2.RequestHandler):
      def get(self):
@@ -118,7 +115,7 @@ class Message(ndb.Model):
 
     @classmethod
     def query_conversation(cls, ancestor_key):
-        return cls.query(ancestor=ancestor_key).order(cls.timestamp)
+        return cls.query(ancestor=ancestor_key).order(-cls.timestamp)
 
 class ChatService(webapp2.RequestHandler):
     def get(self):
@@ -156,8 +153,6 @@ class ChatService(webapp2.RequestHandler):
         record['key'] = data.key.id()
         return record
 
-
-
 app = webapp2.WSGIApplication ([
 ('/chat', ChatService),
 ('/', LoginHandler),
@@ -167,8 +162,5 @@ app = webapp2.WSGIApplication ([
 ('/profile', ProfileHandler),
 ('/search', SearchHandler),
 ('/notifications' , NotficationsHandler),
-<<<<<<< HEAD
-=======
 ('/index', CalendarHandler)
->>>>>>> d93363a37a9a9c12e4da84ce3e7769923636846d
 ], debug = True)
