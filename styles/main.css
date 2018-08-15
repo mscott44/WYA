@@ -24,6 +24,12 @@ body{
   padding: 10px 20px;
 }
 
+a{
+  text-decoration: none;
+}
+
+a:hover{}
+
 #main{
   grid-column: 2;
   grid-row: 2 / span 2;
