@@ -3,9 +3,10 @@
   <head>
   <link rel="stylesheet" href="/styles/login.css">
     <meta charset="utf-8">
-    <title>Login</title>
+    <title> WYA </title>
   </head>
   <body>
+    <img src="favicon.png" alt="Favicon" style= "width:150px">
     <div id="muteYouTubeVideoPlayer"> </div>
 
 <script async src="https://www.youtube.com/iframe_api" ></script>
@@ -13,19 +14,22 @@
  function onYouTubeIframeAPIReady() {
   var player;
   player = new YT.Player('muteYouTubeVideoPlayer', {
-    videoId: 'RiflrSmMYq0', // YouTube Video ID
-    width: 1700,               // Player width (in px)
-    height: 1000,              // Player height (in px)
+    videoId: 'RiflrSmMYq0',
+    width: 1700,
+    height: 1000,
     playerVars: {
-      autoplay: 1,        // Auto-play the video on load
-      controls: 1,        // Show pause/play buttons in player
-      showinfo: 0,        // Hide the video title
-      modestbranding: 1,  // Hide the Youtube Logo
-      loop: 1,            // Run the video in a loop
-      fs: 0,              // Hide the full screen button
-      cc_load_policy: 0, // Hide closed captions
-      iv_load_policy: 3,  // Hide the Video Annotations
-      autohide: 0         // Hide video controls when playing
+      autoplay: 1,
+      controls: 1,
+      showinfo: 0,
+      modestbranding: 1,
+      loop: 0,
+      fs: 0,
+      cc_load_policy: 0,
+      iv_load_policy: 3,
+      autohide: 0,
+      start: 14,
+      end: 127,
+      controls: 0,
     },
     events: {
       onReady: function(e) {
@@ -36,8 +40,8 @@
  }
 </script>
     <div id="background_image">
-      <h1 id="title">WYA</h1>
-      <section id="login_link"><h2><a href="{{ login_url }}">Sign in</a></h2></section>
+      <h1 id="title">Where.You.At?</h1>
+      <section id="login_link"><h2><a href="{{ login_url }}">Sign.In</a></h2>
     </div>
   </body>
 </html>
