@@ -5,7 +5,7 @@ import os
 import webapp2
 import time
 
-from models import Post, User
+from models import Post, User, Message
 from content_management import populate_feed, logout_url, login_url
 from google.appengine.api import users
 from google.appengine.ext import ndb
@@ -132,14 +132,6 @@ class NotficationsHandler(webapp2.RequestHandler):
           }
          notifications_template = jinja_current_directory.get_template("templates/notifications.html")
          self.response.write(notifications_template.render(fields))
-
-class Message(ndb.Model):
-    content = ndb.StringProperty()
-    timestamp = ndb.DateTimeProperty(auto_now_add=True)
-
-    @classmethod
-    def query_conversation(cls, ancestor_key):
-        return cls.query(ancestor=ancestor_key).order(-cls.timestamp)
 
 class ChatService(webapp2.RequestHandler):
     def get(self):
