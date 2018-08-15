@@ -1,7 +1,7 @@
 body{
   display: grid;
   grid-template-columns: 150px auto 200px;
-  grid-template-rows: 100px auto 275px 50px;
+  grid-template-rows: 100px auto 50px;
   margin: 0;
   height: 100vh;
 }
@@ -14,10 +14,25 @@ body{
   /*background-image: url("/media/giphy.gif");*/
   background-image: linear-gradient(to right, #f79393, #f87f83, #f86a75, #f75267, #f5325a);
 }
-
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+#user_info {
+    color: black;
+    background-image: linear-gradient(to right top, #ebe216, #ffb300, #ff8227, #fb4f45, #e1175e);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 0px;
+}
+#profPic {
+  align-content: center
+}
 #menu {
   grid-column: 1;
-  grid-row: 2 / span 2;
+  grid-row: 2;
   background-color: white;
   border-right: 1px black solid;
   padding: 10px 20px;
@@ -37,13 +52,6 @@ body{
   color: #f5325a;
 }
 
-#menu{
-  grid-column: 1;
-  grid-row: 2 / span 2;
-  /*background: linear-gradient(white, grey, white);*/
-  padding: 10px 20px;
-}
-
 a{
   text-decoration: none;
 }
@@ -52,7 +60,7 @@ a:hover{}
 
 #main{
   grid-column: 2;
-  grid-row: 2 / span 2;
+  grid-row: 2;
   background-color: white;
   padding: 10px 10px;
   font-family: 'Raleway', sans-serif;
@@ -60,7 +68,7 @@ a:hover{}
 
 #miniprofile , #friends{
   grid-column: 3;
-  grid-row: 2 / span 2;
+  grid-row: 2;
   /*background: linear-gradient(white, blue, white, white);*/
   padding: 10px;
   background-color: white;
@@ -68,20 +76,9 @@ a:hover{}
   font-family: 'Raleway', sans-serif;
 }
 
-#chat{
-  grid-row: 3;
-  grid-column: 3;
-  /*background: linear-gradient(white, pink, white);*/
-  padding: 10px;
-  background-color: white;
-  border-left: 1px black solid;
-  border-top: 1px black solid;
-  font-family: 'Raleway', sans-serif;
-}
-
 #footer{
   grid-column: 1 / span 3;
-  grid-row: 4;
+  grid-row: 3;
   /*background: linear-gradient(to right, white, blue, white);*/
   padding: 0px 10px;
   background-color: #ffd966ff;
