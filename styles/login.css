@@ -2,17 +2,23 @@ body {
   background-color: white;
   text-align: center;
   color: black;
-  background-image: url("/media/colorful.jpg");
+  /*background-image: url("/media/colorful.jpg");*/
+  background-color: #f79393;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   grid-template-rows: 1fr auto 1fr;
 }
 
+#loginlogo {
+  text-align: center;
+  height: 100px;
+}
+
 #login_link {
   grid-row: 2;
   color: white;
-  font-size: 100px;
+  font-size: 30px;
   font-family: impact;
   text-shadow: 2px 2px 2px black;
   padding: 50px 20px 10px 20px;
