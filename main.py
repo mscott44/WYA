@@ -53,18 +53,20 @@ class CalendarHandler(webapp2.RequestHandler):
         self.response.write(index_template.render())
 
 class FeedHandler(webapp2.RequestHandler):
-   def get(self):
-       user = users.get_current_user()
-       current_user = User.query().filter(User.email == user.email()).get()
-       fields = {
+    def get(self):
+        user = users.get_current_user()
+        current_user = User.query().filter(User.email == user.email()).get()
+        fields = {
             "name": current_user.name,
             "username": current_user.username,
             "sign_out": logout_url,
-            "email" : current_user.email
+            "email" : current_user.email,
+            "users": User.query().fetch(),
+            "user_count": len(User.query().fetch())
         }
-       feed_template = jinja_current_directory.get_template("templates/feed.html")
-       self.response.write(feed_template.render(fields))
-   def post(self):
+        feed_template = jinja_current_directory.get_template("templates/feed.html")
+        self.response.write(feed_template.render(fields))
+    def post(self):
          user = users.get_current_user()
          if user is None:
              self.redirect('/')
@@ -87,56 +89,64 @@ class FeedHandler(webapp2.RequestHandler):
          self.redirect('/feed')
 
 class ChatroomHandler(webapp2.RequestHandler):
-     def get(self):
-         user = users.get_current_user()
-         current_user = User.query().filter(User.email == user.email()).get()
-         fields = {
+    def get(self):
+        user = users.get_current_user()
+        current_user = User.query().filter(User.email == user.email()).get()
+        fields = {
             "name": current_user.name,
             "username": current_user.username,
             "sign_out": logout_url,
-            "email" : current_user.email
-          }
-         template = jinja_current_directory.get_template("templates/chatroom.html")
-         self.response.write(template.render(fields))
+            "email" : current_user.email,
+            "users": User.query().fetch(),
+            "user_count": len(User.query().fetch())
+        }
+        template = jinja_current_directory.get_template("templates/chatroom.html")
+        self.response.write(template.render(fields))
 
 class ProfileHandler(webapp2.RequestHandler):
-     def get(self):
-         user = users.get_current_user()
-         current_user = User.query().filter(User.email == user.email()).get()
-         fields = {
-              "name": current_user.name,
-              "username": current_user.username,
-              "sign_out": logout_url,
-              "email" : current_user.email
-          }
-         profile_template = jinja_current_directory.get_template("templates/profile.html")
-         self.response.write(profile_template.render(fields))
+    def get(self):
+        user = users.get_current_user()
+        current_user = User.query().filter(User.email == user.email()).get()
+        fields = {
+            "name": current_user.name,
+            "username": current_user.username,
+            "sign_out": logout_url,
+            "email" : current_user.email,
+            "users": User.query().fetch(),
+            "user_count": len(User.query().fetch())
+        }
+        profile_template = jinja_current_directory.get_template("templates/profile.html")
+        self.response.write(profile_template.render(fields))
 
 class SearchHandler(webapp2.RequestHandler):
-     def get(self):
-         user = users.get_current_user()
-         current_user = User.query().filter(User.email == user.email()).get()
-         fields = {
-              "name": current_user.name,
-              "username": current_user.username,
-              "sign_out": logout_url,
-              "email" : current_user.email
-          }
-         search_template = jinja_current_directory.get_template("templates/search.html")
-         self.response.write(search_template.render(fields))
+    def get(self):
+        user = users.get_current_user()
+        current_user = User.query().filter(User.email == user.email()).get()
+        fields = {
+            "name": current_user.name,
+            "username": current_user.username,
+            "sign_out": logout_url,
+            "email" : current_user.email,
+            "users": User.query().fetch(),
+            "user_count": len(User.query().fetch())
+        }
+        search_template = jinja_current_directory.get_template("templates/search.html")
+        self.response.write(search_template.render(fields))
 
 class NotficationsHandler(webapp2.RequestHandler):
-     def get(self):
-         user = users.get_current_user()
-         current_user = User.query().filter(User.email == user.email()).get()
-         fields = {
-              "name": current_user.name,
-              "username": current_user.username,
-              "sign_out": logout_url,
-              "email" : current_user.email
-          }
-         notifications_template = jinja_current_directory.get_template("templates/notifications.html")
-         self.response.write(notifications_template.render(fields))
+    def get(self):
+        user = users.get_current_user()
+        current_user = User.query().filter(User.email == user.email()).get()
+        fields = {
+            "name": current_user.name,
+            "username": current_user.username,
+            "sign_out": logout_url,
+            "email" : current_user.email,
+            "users": User.query().fetch(),
+            "user_count": len(User.query().fetch())
+        }
+        notifications_template = jinja_current_directory.get_template("templates/notifications.html")
+        self.response.write(notifications_template.render(fields))
 
 class ChatService(webapp2.RequestHandler):
     def get(self):
