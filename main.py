@@ -154,7 +154,6 @@ app = webapp2.WSGIApplication ([
 ('/', LoginHandler),
 ('/chatroom', ChatroomHandler),
 ('/feed', FeedHandler),
-('/settings', SettingsHandler),
 ('/profile', ProfileHandler),
 ('/search', SearchHandler),
 ('/notifications' , NotficationsHandler),
