@@ -29,13 +29,27 @@
     </section>
 
     <section id="miniprofile">
-      <p>MINIPROF</p>
-      <img id="profPic" src="https://pikmail.herokuapp.com/{{ email }}?size=100" onerror="imgError(this);"/>
+      <p></p>
+      <img class="center" src="https://pikmail.herokuapp.com/{{ email }}?size=100" onerror="imgError(this);"/>
+      <section id="console">
+        <div id="user_info">
+            <h2 class="user_info_content" id="user_name">{{ name }}</h2>
+            <h2 class="user_info_content" id="username">@{{ username }}</h2>
+        </div>
 
+        <p></p>
+
+        <div id="about_content">
+          <h1 id="total_title">Total number of users: {{ user_count }}</h1>
+          {% for user in users %}
+            <h1 id="target_info">@{{ user.username }}</h1>
+          {% endfor %}
+        </div>
+      </section>
     </section>
 
     <section id="footer">
-      <p>FOOTER</p>
+      <p>Where You At ©</p>
     </section>
     <script src="/static/main.js"></script>
   </body>

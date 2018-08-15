@@ -51,13 +51,20 @@
                 <h2 class="user_info_content" id="user_name">Name: {{ name }}</h2>
                 <h2 class="user_info_content">Username: <span id="username">{{ username }}</span></h2>
 
-            </div>
+      <p></p>
+
+      <div id="about_content">
+        <h1 id="total_title">Total number of users: {{ user_count }}</h1>
+        {% for user in users %}
+          <h1 id="target_info">@{{ user.username }}</h1>
+        {% endfor %}
+      </div>
     </section>
     {{all_users}}
   </section>
 
   <section id="footer">
-    <p>FOOTER</p>
+    <p>Where You At ©</p>
   </section>
   <script src="/static/main.js"></script>
   <script src="/static/app.js"></script>
