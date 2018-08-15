@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <link rel="shortcut icon" href="/media/favicon.png" />
-   <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/main.css"/>
     <meta charset="utf-8">
 
     <title>Feed</title>
@@ -30,6 +30,8 @@
 
     <section id="miniprofile">
       <p>MINIPROF</p>
+      <img id="profPic" src="https://pikmail.herokuapp.com/{{ email }}?size=100" onerror="imgError(this);"/>
+
     </section>
 
     <section id="chat">
@@ -39,6 +41,6 @@
     <section id="footer">
       <p>FOOTER</p>
     </section>
-
+    <script src="/static/main.js"></script>
   </body>
 </html>
