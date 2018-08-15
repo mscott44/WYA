@@ -84,10 +84,6 @@ class FeedHandler(webapp2.RequestHandler):
              new_post.put()
          time.sleep(.2)
          self.redirect('/feed')
-class SettingsHandler(webapp2.RequestHandler):
-     def get(self):
-         settings_template = jinja_current_directory.get_template("templates/settings.html")
-         self.response.write(settings_template.render({ "sign_out": logout_url }))
 
 class ChatroomHandler(webapp2.RequestHandler):
      def get(self):
