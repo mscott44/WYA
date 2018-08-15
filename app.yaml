@@ -9,6 +9,8 @@ handlers:
   static_dir: styles
 - url: /media
   static_dir: media
+- url: /scripts
+  static_dir: scripts
 - url: /.* #.* should always be first (order matters)
   script: main.app
 - url: /(.*\.js)
