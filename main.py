@@ -173,6 +173,9 @@ class ChatService(webapp2.RequestHandler):
         messages = Message.query_conversation().filter(
             Message.sender == sender,
             Message.receiver == receiver).fetch()
+        messages += Message.query_conversation().filter(
+            Message.sender == receiver,
+            Message.receiver == sender).fetch()
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write(
             json.dumps([self.to_serializable(m) for m in messages]))
@@ -184,6 +187,7 @@ class ChatService(webapp2.RequestHandler):
         receiver = self.request.get('to');
         message = Message(parent=ndb.Key("Messages", key), content=content, receiver=receiver, sender=sender)
         message.put()
+        time.sleep(0.3)
 
     def getKey(self, request):
         from_user = self.request.get('from');
