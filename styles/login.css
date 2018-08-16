@@ -47,6 +47,7 @@ margin-left: 800px;
 font-family: impact;
 font-size: 100px;
 text-shadow: 10px 10px white;
+overflow: hidden;
 }
 #loginlogo {
   position: absolute;
