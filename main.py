@@ -61,7 +61,7 @@ class ProfileHandler(webapp2.RequestHandler):
             "username": current_user.username,
             "sign_out": logout_url,
             "email" : current_user.email,
-            "users": User.query().fetch(),
+            "users": User.query().order(User.time).fetch(),
             "user_count": len(User.query().fetch())
         }
         profile_template = jinja_current_directory.get_template("templates/profile.html")
@@ -98,6 +98,7 @@ class ChatroomHandler(webapp2.RequestHandler):
             "name": current_user.name,
             "sign_out": logout_url,
             "email" : current_user.email,
+            "users": User.query().order(User.time).fetch(),
             "all_users" : all_users,
             "friend": User.query().filter(User.username == self.request.get("friend")).get(),
           }
@@ -129,7 +130,7 @@ class FriendprofileHandler(webapp2.RequestHandler):
             "username": current_user.username,
             "sign_out": logout_url,
             "email" : current_user.email,
-            "users": User.query().fetch(),
+            "users": User.query().order(User.time).fetch(),
             "user_count": len(User.query().fetch()),
             "friend": User.query().filter(User.username == self.request.get("friend")).get(),
         }
@@ -145,7 +146,7 @@ class SearchHandler(webapp2.RequestHandler):
             "username": current_user.username,
             "sign_out": logout_url,
             "email" : current_user.email,
-            "users": User.query().fetch(),
+            "users": User.query().order(User.time).fetch(),
             "user_count": len(User.query().fetch()),
             "friend": User.query().filter(User.username == self.request.get("friend")).get(),
         }
@@ -161,7 +162,7 @@ class ExploreHandler(webapp2.RequestHandler):
             "username": current_user.username,
             "sign_out": logout_url,
             "email" : current_user.email,
-            "users": User.query().fetch(),
+            "users": User.query().order(User.time).fetch(),
             "user_count": len(User.query().fetch()),
             "friend": User.query().filter(User.username == self.request.get("friend")).get(),
         }
