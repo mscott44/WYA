@@ -176,6 +176,7 @@ class ChatService(webapp2.RequestHandler):
         messages += Message.query_conversation().filter(
             Message.sender == other,
             Message.receiver == me).fetch()
+        print(messages)
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write(
             json.dumps([self.to_serializable(m) for m in messages]))

@@ -15,6 +15,12 @@ indexes:
   - name: receiver
   - name: sender
   - name: timestamp
+
+- kind: Message
+  properties:
+  - name: receiver
+  - name: sender
+  - name: timestamp
     direction: desc
 
 - kind: Message
