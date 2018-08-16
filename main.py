@@ -171,8 +171,15 @@ class ExploreHandler(webapp2.RequestHandler):
 class ChatService(webapp2.RequestHandler):
     def get(self):
         key = self.getKey(self.request);
+        me = self.request.get('me')
+        other = self.request.get('other');
         ancestor_key = ndb.Key('Messages', key)
-        messages = Message.query_conversation().fetch()
+        messages = Message.query_conversation().filter(
+            Message.sender == me,
+            Message.receiver == other).fetch()
+        messages += Message.query_conversation().filter(
+            Message.sender == other,
+            Message.receiver == me).fetch()
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write(
             json.dumps([self.to_serializable(m) for m in messages]))
@@ -184,6 +191,7 @@ class ChatService(webapp2.RequestHandler):
         receiver = self.request.get('to');
         message = Message(parent=ndb.Key("Messages", key), content=content, receiver=receiver, sender=sender)
         message.put()
+        time.sleep(0.3)
 
     def getKey(self, request):
         from_user = self.request.get('from');
