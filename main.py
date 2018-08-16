@@ -167,15 +167,15 @@ class ExploreHandler(webapp2.RequestHandler):
 class ChatService(webapp2.RequestHandler):
     def get(self):
         key = self.getKey(self.request);
-        sender = self.request.get('from')
-        receiver = self.request.get('to');
+        me = self.request.get('me')
+        other = self.request.get('other');
         ancestor_key = ndb.Key('Messages', key)
         messages = Message.query_conversation().filter(
-            Message.sender == sender,
-            Message.receiver == receiver).fetch()
+            Message.sender == me,
+            Message.receiver == other).fetch()
         messages += Message.query_conversation().filter(
-            Message.sender == receiver,
-            Message.receiver == sender).fetch()
+            Message.sender == other,
+            Message.receiver == me).fetch()
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write(
             json.dumps([self.to_serializable(m) for m in messages]))

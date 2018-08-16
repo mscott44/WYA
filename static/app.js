@@ -41,10 +41,10 @@ function postMessage() {
 }
 
 
-function refreshMessages(from, to) {
-  const receiver = getReceiver();
-  const sender = document.querySelector("#username").innerHTML;
-  fetch(`./chat?from=${encodeURI(sender)}&to=${encodeURI(receiver)}`)
+function refreshMessages() {
+  const other = getReceiver();
+  const me = document.querySelector("#username").innerHTML;
+  fetch(`./chat?me=${encodeURI(me)}&other=${encodeURI(other)}`)
       .then(function(response) {
         return response.json();
       })
@@ -54,7 +54,8 @@ function refreshMessages(from, to) {
         messagesDiv.innerHTML = '';
         messages.forEach(function(message) {
           const li = document.createElement('li');
-          li.innerHTML = `To: ${message.receiver} From: ${message.sender}: ${message.content}`;
+          li.classList.add(message.sender === me ? "fromMe" : "fromThem");
+          li.innerHTML = `${message.content}`;
           messagesDiv.append(li);
         });
       });
