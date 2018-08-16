@@ -17,9 +17,9 @@
 
     <section id="menu">
       <p>
-          <p><a href="/feed">Feed</a></p>
-          <p><a href="/chatroom">Chat</a></p>
           <p><a href="/profile">Profile</a></p>
+          <p><a href="/chatroom">Chat</a></p>
+          <p><a href="/feed">Feed</a></p>
           <p><a href="/search">Search</a></p>
           <p><a href="/explore">Explore</a></p>
           <p><a href="{{ sign_out }}">Sign out</a></p>
@@ -27,6 +27,7 @@
     </section>
 
     <section id="main">
+      <p id="userlabel">@{{ username }}<p>
       <p><iframe src="https://calendar.google.com/calendar/embed?src={{ email }}&ctz=America%2FLos_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe></p>
 
     </section>

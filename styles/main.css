@@ -1,7 +1,7 @@
 body{
   display: grid;
   grid-template-columns: 150px auto 200px;
-  grid-template-rows: 140px auto 50px;
+  grid-template-rows: 130px auto 50px;
   margin: 0;
   height: 100vh;
 }
@@ -45,6 +45,7 @@ body{
 #profPic{
   align-content: center
 }
+
 #menu{
   grid-column: 1;
   grid-row: 2;
@@ -57,28 +58,35 @@ body{
   background-color: white;
   font-family: 'Raleway', sans-serif;
 }
- a {
+
+a{
   text-decoration: none;
   font-weight: bold;
   color: black;
+  text-decoration: none;
 }
  a:hover {
   text-decoration: none;
   color: #f5325a;
 }
 
-a{
-  text-decoration: none;
-}
-
-a:hover{}
-
 #main{
   grid-column: 2;
   grid-row: 2;
   background-color: white;
-  padding: 10px 10px;
+  padding: 10px 10px 10px 10px;
   font-family: 'Raleway', sans-serif;
+}
+
+#userlabel{
+  text-align: center;
+  font-size: 25px;
+  padding: 0px;
+  color: #f5325a;
+}
+
+iframe{
+  width: 100%;
 }
 
 #miniprofile , #friends{
@@ -134,7 +142,7 @@ a:hover{}
 }
 #logo{
   height: 80px;
-  padding: 10px;
+  padding: 10px 0px 0px 10px;
 }
 
 #myButton {
@@ -171,7 +179,7 @@ a:hover{}
   width: auto;
 }
 
-ul li {
+ul li{
     background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
     margin: 5px;
     padding: 0px 0px 0px 10px;
@@ -189,7 +197,7 @@ ul li {
     -webkit-animation: hue 10s infinite linear;
 }
 
-ul.leaf {
+ul.leaf{
 list-style-image: url('/media/favicon.ico');
 
 }
@@ -198,7 +206,4 @@ list-style-image: url('/media/favicon.ico');
    width: 100%;
    height: 400px;
    background-color: grey;
-
-
-
 /*list-style-image
