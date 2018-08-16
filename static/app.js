@@ -49,6 +49,11 @@ function refreshMessages() {
         return response.json();
       })
       .then(function(messages) {
+        console.log();(messages)
+        messages = messages.sort((m1, m2) => {
+            return new Date(m1.timestamp) - new Date(m2.timestamp);
+        })
+        console.log(messages);
         console.log('REFRESHING');
         const messagesDiv = document.querySelector('#messages');
         messagesDiv.innerHTML = '';
