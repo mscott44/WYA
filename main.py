@@ -98,7 +98,8 @@ class ChatroomHandler(webapp2.RequestHandler):
             "name": current_user.name,
             "sign_out": logout_url,
             "email" : current_user.email,
-            "all_users" : all_users
+            "all_users" : all_users,
+            "friend": User.query().filter(User.username == self.request.get("friend")).get(),
           }
          template = jinja_current_directory.get_template("templates/chatroom.html")
          self.response.write(template.render(fields))
@@ -112,8 +113,9 @@ class FeedHandler(webapp2.RequestHandler):
             "username": current_user.username,
             "sign_out": logout_url,
             "email" : current_user.email,
-            "users": User.query().fetch(),
-            "user_count": len(User.query().fetch())
+            "users": User.query().order(User.time).fetch(),
+            "user_count": len(User.query().fetch()),
+            "friend": User.query().filter(User.username == self.request.get("friend")).get(),
         }
         feed_template = jinja_current_directory.get_template("templates/feed.html")
         self.response.write(feed_template.render(fields))
@@ -129,7 +131,7 @@ class FriendprofileHandler(webapp2.RequestHandler):
             "email" : current_user.email,
             "users": User.query().fetch(),
             "user_count": len(User.query().fetch()),
-            "friend": User.query().filter(User.username == self.request.get("friend")).get()
+            "friend": User.query().filter(User.username == self.request.get("friend")).get(),
         }
         friendprofile_template = jinja_current_directory.get_template("templates/friendprofile.html")
         self.response.write(friendprofile_template.render(fields))
@@ -144,7 +146,8 @@ class SearchHandler(webapp2.RequestHandler):
             "sign_out": logout_url,
             "email" : current_user.email,
             "users": User.query().fetch(),
-            "user_count": len(User.query().fetch())
+            "user_count": len(User.query().fetch()),
+            "friend": User.query().filter(User.username == self.request.get("friend")).get(),
         }
         search_template = jinja_current_directory.get_template("templates/search.html")
         self.response.write(search_template.render(fields))
@@ -159,7 +162,8 @@ class ExploreHandler(webapp2.RequestHandler):
             "sign_out": logout_url,
             "email" : current_user.email,
             "users": User.query().fetch(),
-            "user_count": len(User.query().fetch())
+            "user_count": len(User.query().fetch()),
+            "friend": User.query().filter(User.username == self.request.get("friend")).get(),
         }
         explore_template = jinja_current_directory.get_template("templates/explore.html")
         self.response.write(explore_template.render(fields))

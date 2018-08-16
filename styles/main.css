@@ -215,6 +215,12 @@ ul li{
 
 }
 
+#notificationbox{
+  width: auto;
+  background-color: #fff1a4ff;
+  padding: 10px;
+}
+
 ul.leaf{
 list-style-image: url('/media/favicon.ico');
 
