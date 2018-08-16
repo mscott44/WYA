@@ -26,13 +26,12 @@
     </section>
 
     <section id="main">
-      <p><iframe src="https://calendar.google.com/calendar/embed?src={{ email }}&ctz=America%2FLos_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe></p>
-
+      <p><iframe src="https://calendar.google.com/calendar/embed?src={{ friend.email }}&ctz=America%2FLos_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe></p>
     </section>
 
     <section id="miniprofile">
       <p></p>
-      <img class="center" src="https://pikmail.herokuapp.com/{{ email }}?size=100" onerror="imgError(this);"/>
+      <img class="center" src="https://pikmail.herokuapp.com/{{ friend.email }}?size=100" onerror="imgError(this);"/>
       <section id="console">
         <div id="user_info">
             <h2 class="user_info_content" id="user_name">{{ name }}</h2>
@@ -44,7 +43,7 @@
         <div id="about_content">
           <h1 id="total_title">Total number of users: {{ user_count }}</h1>
           {% for user in users %}
-            <p><a href ="/friendprofile?friend={{user.username}}" id="target_info">@{{ user.username }}</a></p>
+            <p><a href ="/friendprofile" id="target_info">@{{ user.username }}</a></p>
           {% endfor %}
         </div>
       </section>
