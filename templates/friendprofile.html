@@ -12,6 +12,7 @@
 
     <section id="header">
       <img id="logo" src="media/logo.png" alt="logo"/>
+      <section id="WhereYouAt">Where You At</section>
     </section>
 
     <section id="menu">
@@ -43,7 +44,7 @@
         <div id="about_content">
           <h1 id="total_title">Total number of users: {{ user_count }}</h1>
           {% for user in users %}
-            <p><a href ="/friendprofile" id="target_info">@{{ user.username }}</a></p>
+            <p><a href ="/friendprofile?friend={{user.username}}" id="target_info">@{{ user.username }}</a></p>
           {% endfor %}
         </div>
       </section>

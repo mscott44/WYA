@@ -149,7 +149,7 @@ class SearchHandler(webapp2.RequestHandler):
         search_template = jinja_current_directory.get_template("templates/search.html")
         self.response.write(search_template.render(fields))
 
-class NotficationsHandler(webapp2.RequestHandler):
+class ExploreHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
         current_user = User.query().filter(User.email == user.email()).get()
@@ -210,6 +210,6 @@ app = webapp2.WSGIApplication ([
 ('/profile', ProfileHandler),
 ('/friendprofile', FriendprofileHandler),
 ('/search', SearchHandler),
-('/notifications' , NotficationsHandler),
+('/explore' , ExploreHandler),
 ('/index', CalendarHandler)
 ], debug = True)
