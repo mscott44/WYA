@@ -3,3 +3,14 @@
   <p id="userlabel">@{{ friend.username }}<p>
   <p><iframe src="https://calendar.google.com/calendar/embed?src={{ friend.email }}&ctz=America%2FLos_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe></p>
 {% endblock %}
+
+
+{% block miniprofile %}
+<img class="center" src="https://pikmail.herokuapp.com/{{ friend.email }}?size=100" onerror="imgError(this);"/>
+<section id="console">
+    <div id="user_info">
+      <h2 class="user_info_content" id="user_name">{{ friend.name }}</h2>
+      <h2 class="user_info_content" id="username">@{{ friend.username }}</h2>
+    </div>
+</section>
+{% endblock %}

@@ -18,3 +18,14 @@
   <textarea id="message"></textarea>
   <button id="myButton">Send message</button>
 {% endblock %}
+
+
+{% block miniprofile %}
+<img class="center" src="https://pikmail.herokuapp.com/{{ email }}?size=100" onerror="imgError(this);"/>
+<section id="console">
+    <div id="user_info">
+      <h2 class="user_info_content" id="user_name">{{ name }}</h2>
+      <h2 class="user_info_content" id="username">@{{ username }}</h2>
+    </div>
+</section>
+{% endblock %}
