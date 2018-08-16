@@ -118,7 +118,7 @@ a:hover{}
     margin: 10px;
     padding: 0px 0px 0px 10px;
     height: 100px;
-    width: 1300px;
+    width: 1200px;
     padding: 5px;
     border-radius: 10px;
     box-shadow: 0 6px 10px 0 lavender;
@@ -146,7 +146,7 @@ a:hover{}
   height: auto;
   padding: 20px;
   overflow: auto;
-  width: 1450px;
+  width: 1200px;
   height: 420px;
   background-color: white;
   margin: 10px;
@@ -160,6 +160,7 @@ a:hover{}
   background-color: white;
   line-height: 2;
   border-width: 20px;
+  width: 500px;
 }
 
 ul li {
