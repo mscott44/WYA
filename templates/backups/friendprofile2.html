@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <meta charset="utf-8">
 
-    <title>Where You At</title>
+    <title></title>
   </head>
   <body>
 
@@ -17,26 +17,27 @@
 
     <section id="menu">
       <p>
-          <p><a href="/profile">Profile</a></p>
-          <p><a href="/chatroom">Chat</a></p>
-          <p><a href="/feed">Feed</a></p>
-          <p><a href="/search">Search</a></p>
-          <p><a href="/explore">Explore</a></p>
-          <p><a href="{{ sign_out }}">Sign out</a></p>
+        <p><a href="/profile">Profile</a></p>
+        <p><a href="/chatroom">Chat</a></p>
+        <p><a href="/feed">Feed</a></p>
+        <p><a href="/search">Search</a></p>
+        <p><a href="/explore">Explore</a></p>
+        <p><a href="{{ sign_out }}">Sign out</a></p>
       </p>
     </section>
 
     <section id="main">
-      {% block content %}{% endblock %}
+      <p id="userlabel">@{{ friend.username }}<p>
+      <p><iframe src="https://calendar.google.com/calendar/embed?src={{ friend.email }}&ctz=America%2FLos_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe></p>
     </section>
 
     <section id="miniprofile">
       <p></p>
-      <img class="center" src="https://pikmail.herokuapp.com/{{ email }}?size=100" onerror="imgError(this);"/>
+      <img class="center" src="https://pikmail.herokuapp.com/{{ friend.email }}?size=100" onerror="imgError(this);"/>
       <section id="console">
         <div id="user_info">
-            <h2 class="user_info_content" id="user_name">{{ name }}</h2>
-            <h2 class="user_info_content" id="username">@{{ username }}</h2>
+            <h2 class="user_info_content" id="user_name">{{ friend.name }}</h2>
+            <h2 class="user_info_content" id="username">@{{ friend.username }}</h2>
         </div>
 
         <p></p>

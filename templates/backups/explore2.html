@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  <link rel="shortcut icon" href="/media/favicon.png" />
+  <link rel="stylesheet" href="/styles/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <meta charset="utf-8">
+
+    <title>Explore</title>
+  </head>
+  <body>
+    <section id="header">
+      <img id="logo" src="media/logo.png" alt="logo"/>
+      <section id="WhereYouAt">Where You At</section>
+    </section>
+
+    <section id="menu">
+      <p>
+        <p><a href="/profile">Profile</a></p>
+        <p><a href="/chatroom">Chat</a></p>
+        <p><a href="/feed">Feed</a></p>
+        <p><a href="/search">Search</a></p>
+        <p><a href="/explore">Explore</a></p>
+        <p><a href="{{ sign_out }}">Sign out</a></p>
+      </p>
+    </section>
+
+    <section id="main">
+     <div id="map"></div>
+
+    </section>
+
+    <section id="miniprofile">
+      <p></p>
+      <img class="center" src="https://pikmail.herokuapp.com/{{ email }}?size=100" onerror="imgError(this);"/>
+      <section id="console">
+        <div id="user_info">
+            <h2 class="user_info_content" id="user_name">{{ name }}</h2>
+            <h2 class="user_info_content" id="username">@{{ username }}</h2>
+        </div>
+
+        <p></p>
+
+        <div id="about_content">
+          <h1 id="total_title">Total number of users: {{ user_count }}</h1>
+          {% for user in users %}
+            <h1 id="target_info">@{{ user.username }}</h1>
+          {% endfor %}
+        </div>
+      </section>
+    </section>
+
+    <section id="footer">
+      <p>Where You At ©</p>
+    </section>
+    <div id="map" style="width:400px;height:400px;background:yellow"></div>
+    <script src="/static/main.js"></script>
+    <script async defer>
+    function myMap() {
+        var mapOptions = {
+            center: new google.maps.LatLng(34.052235, -118.243683),
+            zoom: 10,
+            mapTypeId: google.maps.MapTypeId.HYBRID
+        }
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+  </body>
+</html>

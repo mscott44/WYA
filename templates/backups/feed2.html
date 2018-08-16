@@ -2,32 +2,38 @@
 <html lang="en" dir="ltr">
   <head>
     <link rel="shortcut icon" href="/media/favicon.png" />
-    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/main.css"/>
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <meta charset="utf-8">
 
-    <title>Where You At</title>
+    <title>Feed</title>
   </head>
   <body>
-
     <section id="header">
       <img id="logo" src="media/logo.png" alt="logo"/>
       <section id="WhereYouAt">Where You At</section>
     </section>
-
     <section id="menu">
       <p>
-          <p><a href="/profile">Profile</a></p>
-          <p><a href="/chatroom">Chat</a></p>
-          <p><a href="/feed">Feed</a></p>
-          <p><a href="/search">Search</a></p>
-          <p><a href="/explore">Explore</a></p>
-          <p><a href="{{ sign_out }}">Sign out</a></p>
+        <p><a href="/profile">Profile</a></p>
+        <p><a href="/chatroom">Chat</a></p>
+        <p><a href="/feed">Feed</a></p>
+        <p><a href="/search">Search</a></p>
+        <p><a href="/explore">Explore</a></p>
+        <p><a href="{{ sign_out }}">Sign out</a></p>
+
       </p>
     </section>
 
     <section id="main">
-      {% block content %}{% endblock %}
+      <!-- new user notifications -->
+      <div id="newusers">
+        {% for user in users %}
+          <p id="notificationbox">New User! <br/>{{ user.name }} @{{ user.username }}</p>
+        {% endfor %}
+      </div>
+
+
     </section>
 
     <section id="miniprofile">
@@ -44,7 +50,7 @@
         <div id="about_content">
           <h1 id="total_title">Total number of users: {{ user_count }}</h1>
           {% for user in users %}
-            <p><a href ="/friendprofile?friend={{user.username}}" id="target_info">@{{ user.username }}</a></p>
+            <h1 id="target_info">@{{ user.username }}</h1>
           {% endfor %}
         </div>
       </section>
@@ -55,5 +61,4 @@
     </section>
     <script src="/static/main.js"></script>
   </body>
-
 </html>
