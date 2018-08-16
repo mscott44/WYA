@@ -1,7 +1,7 @@
 body{
   display: grid;
   grid-template-columns: 150px auto 200px;
-  grid-template-rows: 130px auto 50px;
+  grid-template-rows: 100px auto 50px;
   margin: 0;
   height: 100vh;
 }
@@ -10,23 +10,16 @@ body{
   grid-column: 1 / span 3;
   grid-row: 1;
   background: white;
+  font-size: 35px;
   /*background-image: url("/media/giphy.gif");*/
   background-image: linear-gradient(to right, #f79393, #f87f83, #f86a75, #f75267, #f5325a);
 }
-
-#WhereYouAt{
-  font-family: 'Raleway', sans-serif;
-  font-size: 26px;
-  padding-left: 10px;
-}
-
 .center{
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 60%;
 }
-
 #user_info{
   color: black;
   background-color: #f79393;
@@ -119,24 +112,79 @@ a:hover{}
     -webkit-filter: hue-rotate(-360deg);
   }
 }
-
+#message {
+  height: 20%;
+    background-color: white;
+    margin: 10px;
+    padding: 0px 0px 0px 10px;
+    height: 100px;
+    width: 1300px;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 6px 10px 0 lavender;
+}
 #logo{
   height: 80px;
-  padding: 10px 0px 0px 10px;
+  padding: 10px;
 }
 
+#myButton {
+  font-family:'Raleway', sans-serif;
+  font-size: 20px;
+  font-weight:  60;
+  letter-spacing: 2px;
+  text-align: left;
+  color: #f35626;
+  background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: hue 10s infinite linear;
+}
 #messagessection{
   background-color: white;
   width: auto;
   height: auto;
   padding: 20px;
   overflow: auto;
-  width: 1125px;
-  height: 420px
+  width: 1450px;
+  height: 420px;
+  background-color: white;
+  margin: 10px;
+  padding: 0px 0px 0px 10px;
+  border-radius: 10px;
+  border-color: pink;
+  border-style: solid;
 }
 
 #messages{
   background-color: white;
   line-height: 2;
-  list-style-type: none;
+  border-width: 20px;
 }
+
+ul li {
+    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+    margin: 5px;
+    padding: 0px 0px 0px 10px;
+    border-radius: 30px;
+    border-color: pink;
+    border-width: 20px 20px 20px 20px;
+
+    font-family:'Raleway', sans-serif;
+    font-weight:  100;
+    letter-spacing: 2px;
+    text-align: left;
+    color: black;
+    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a)
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 10s infinite linear;
+}
+
+ul.leaf {
+list-style-image: url('/media/favicon.ico');
+
+}
+
+
+
+/*list-style-image
