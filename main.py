@@ -40,8 +40,8 @@ class LoginHandler(webapp2.RequestHandler):
                 }
                 self.response.write(new_user_template.render(fields))
             else:
-                # direct existing user to feed_template
-               self.redirect('/feed')
+                # direct existing user to profile_template
+               self.redirect('/profile')
          else:
            # ask user to sign in to google
            self.response.write(google_login_template.render({ "login_url": login_url }))
@@ -52,7 +52,7 @@ class CalendarHandler(webapp2.RequestHandler):
         index_template = jinja_current_directory.get_template("templates/index.html")
         self.response.write(index_template.render())
 
-class FeedHandler(webapp2.RequestHandler):
+class ProfileHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
         current_user = User.query().filter(User.email == user.email()).get()
@@ -64,8 +64,8 @@ class FeedHandler(webapp2.RequestHandler):
             "users": User.query().fetch(),
             "user_count": len(User.query().fetch())
         }
-        feed_template = jinja_current_directory.get_template("templates/feed.html")
-        self.response.write(feed_template.render(fields))
+        profile_template = jinja_current_directory.get_template("templates/profile.html")
+        self.response.write(profile_template.render(fields))
     def post(self):
          user = users.get_current_user()
          if user is None:
@@ -86,7 +86,7 @@ class FeedHandler(webapp2.RequestHandler):
              new_post = Post(author= current_user.key, content= self.request.get("user_post"))
              new_post.put()
          time.sleep(.2)
-         self.redirect('/feed')
+         self.redirect('/profile')
 
 class ChatroomHandler(webapp2.RequestHandler):
      def get(self):
@@ -103,7 +103,7 @@ class ChatroomHandler(webapp2.RequestHandler):
          template = jinja_current_directory.get_template("templates/chatroom.html")
          self.response.write(template.render(fields))
 
-class ProfileHandler(webapp2.RequestHandler):
+class FeedHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
         current_user = User.query().filter(User.email == user.email()).get()
@@ -115,8 +115,8 @@ class ProfileHandler(webapp2.RequestHandler):
             "users": User.query().fetch(),
             "user_count": len(User.query().fetch())
         }
-        profile_template = jinja_current_directory.get_template("templates/profile.html")
-        self.response.write(profile_template.render(fields))
+        feed_template = jinja_current_directory.get_template("templates/feed.html")
+        self.response.write(feed_template.render(fields))
 
 class FriendprofileHandler(webapp2.RequestHandler):
     def get(self):
@@ -149,7 +149,7 @@ class SearchHandler(webapp2.RequestHandler):
         search_template = jinja_current_directory.get_template("templates/search.html")
         self.response.write(search_template.render(fields))
 
-class NotficationsHandler(webapp2.RequestHandler):
+class ExploreHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
         current_user = User.query().filter(User.email == user.email()).get()
@@ -161,8 +161,8 @@ class NotficationsHandler(webapp2.RequestHandler):
             "users": User.query().fetch(),
             "user_count": len(User.query().fetch())
         }
-        notifications_template = jinja_current_directory.get_template("templates/notifications.html")
-        self.response.write(notifications_template.render(fields))
+        explore_template = jinja_current_directory.get_template("templates/explore.html")
+        self.response.write(explore_template.render(fields))
 
 class ChatService(webapp2.RequestHandler):
     def get(self):
@@ -218,6 +218,6 @@ app = webapp2.WSGIApplication ([
 ('/profile', ProfileHandler),
 ('/friendprofile', FriendprofileHandler),
 ('/search', SearchHandler),
-('/notifications' , NotficationsHandler),
+('/explore' , ExploreHandler),
 ('/index', CalendarHandler)
 ], debug = True)
