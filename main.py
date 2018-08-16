@@ -118,6 +118,22 @@ class ProfileHandler(webapp2.RequestHandler):
         profile_template = jinja_current_directory.get_template("templates/profile.html")
         self.response.write(profile_template.render(fields))
 
+class FriendprofileHandler(webapp2.RequestHandler):
+    def get(self):
+        user = users.get_current_user()
+        current_user = User.query().filter(User.email == user.email()).get()
+        fields = {
+            "name": current_user.name,
+            "username": current_user.username,
+            "sign_out": logout_url,
+            "email" : current_user.email,
+            "users": User.query().fetch(),
+            "user_count": len(User.query().fetch()),
+            "friend": User.query().filter(User.username == self.request.get("friend")).get()
+        }
+        friendprofile_template = jinja_current_directory.get_template("templates/friendprofile.html")
+        self.response.write(friendprofile_template.render(fields))
+
 class SearchHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
@@ -192,6 +208,7 @@ app = webapp2.WSGIApplication ([
 ('/chatroom', ChatroomHandler),
 ('/feed', FeedHandler),
 ('/profile', ProfileHandler),
+('/friendprofile', FriendprofileHandler),
 ('/search', SearchHandler),
 ('/notifications' , NotficationsHandler),
 ('/index', CalendarHandler)
