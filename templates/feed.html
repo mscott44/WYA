@@ -26,7 +26,14 @@
     </section>
 
     <section id="main">
-      <p>MAIN</p>
+      <!-- new user notifications -->
+      <div id="newusers">
+        {% for user in users %}
+          <p id="notificationbox">New User! <br/>{{ user.name }} @{{ user.username }}</p>
+        {% endfor %}
+      </div>
+
+
     </section>
 
     <section id="miniprofile">
