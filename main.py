@@ -167,8 +167,12 @@ class NotficationsHandler(webapp2.RequestHandler):
 class ChatService(webapp2.RequestHandler):
     def get(self):
         key = self.getKey(self.request);
+        sender = self.request.get('from')
+        receiver = self.request.get('to');
         ancestor_key = ndb.Key('Messages', key)
-        messages = Message.query_conversation().fetch()
+        messages = Message.query_conversation().filter(
+            Message.sender == sender,
+            Message.receiver == receiver).fetch()
         self.response.headers['Content-Type'] = 'application/json'
         self.response.write(
             json.dumps([self.to_serializable(m) for m in messages]))

@@ -9,7 +9,6 @@ function sendMessageClicked() {
   })
 }
 
-
 function postMessage() {
   // Call fetch on the chat api.
   const textarea = document.querySelector('#message');
@@ -28,7 +27,10 @@ function postMessage() {
 
 
 function refreshMessages(from, to) {
-  fetch('./chat?from=213&to=562')
+  const dropdown = document.querySelector("#userDropdown")
+  const receiver = dropdown.options[dropdown.selectedIndex].value;
+  const sender = document.querySelector("#username").innerHTML;
+  fetch(`./chat?from=${encodeURI(sender)}&to=${encodeURI(receiver)}`)
       .then(function(response) {
         return response.json();
       })
