@@ -1,0 +1,20 @@
+{% extends "templates/layout.html" %}
+{% block content %}
+  <p><h1 class="header">Chat</h1></p>
+  <p> To:
+    <select id="userDropdown">
+    {% for user in all_users %}
+    <option>{{ user.username }}</option>
+    {% endfor %}
+    </select>
+  </p>
+
+  <section id="messagessection">
+    <ul class= "leaf" id="messages"> </ul>
+  </section>
+
+  <p></p>
+
+  <textarea id="message"></textarea>
+  <button id="myButton">Send message</button>
+{% endblock %}
