@@ -25,7 +25,8 @@
     </section>
 
     <section id="main">
-      <p>NOTIFICATIONS</p>
+     <div id="map"></div>
+
     </section>
 
     <section id="miniprofile">
@@ -51,6 +52,18 @@
     <section id="footer">
       <p>Where You At ©</p>
     </section>
+    <div id="map" style="width:400px;height:400px;background:yellow"></div>
     <script src="/static/main.js"></script>
+    <script async defer>
+    function myMap() {
+        var mapOptions = {
+            center: new google.maps.LatLng(34.052235, -118.243683),
+            zoom: 10,
+            mapTypeId: google.maps.MapTypeId.HYBRID
+        }
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
   </body>
 </html>
