@@ -1,6 +1,6 @@
 {% extends "templates/layout.html" %}
 {% block content %}
-  <p id="userlabel">@{{ friend.username }}<p>
+  <p><h1 class="info">@{{ friend.username }}</h1></p>
   <p><iframe src="https://calendar.google.com/calendar/embed?src={{ friend.email }}&ctz=America%2FLos_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe></p>
 {% endblock %}
 

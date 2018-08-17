@@ -59,14 +59,39 @@ body{
   font-family: 'Raleway', sans-serif;
 }
 
-a{
+#theteam{
+  width: 400px;
+}
+
+#gcalendar{
+  text-decoration: none;
+  color: #f5325a;
+}
+
+#gcalendar:hover{
+  color: #f79393;
+}
+
+#amain{
   text-decoration: none;
   font-weight: bold;
   color: black;
   text-decoration: none;
+  transition: color 0.7s;
+  transition: margin 0.7s;
 }
- a:hover {
+ #amain:hover {
   text-decoration: none;
+  color: #f5325a;
+  margin-left: 10px;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+a:hover{
   color: #f5325a;
 }
 
@@ -79,7 +104,6 @@ a{
 }
 
 #userlabel{
-  text-align: center;
   font-size: 25px;
   padding: 0px;
   color: #f5325a;

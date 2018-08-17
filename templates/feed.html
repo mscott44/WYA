@@ -1,6 +1,8 @@
 {% extends "templates/layout.html" %}
 {% block content %}
   <!-- new user notifications -->
+  <p><h1 class="info">Feed</h1></p>
+
   <div id="newusers">
     {% for user in users %}
       <p id="notificationbox">New User! <br/>{{ user.name }} @{{ user.username }}</p>
