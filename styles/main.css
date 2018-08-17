@@ -50,7 +50,7 @@ body{
   grid-column: 1;
   grid-row: 2;
   background-color: white;
-  border-right: 1px black solid;
+  border-right: 0px black solid;
   padding: 10px 20px;
   padding: 0px 25px;
   line-height: 5;
@@ -95,7 +95,7 @@ iframe{
   /*background: linear-gradient(white, blue, white, white);*/
   padding: 10px;
   background-color: white;
-  border-left: 1px black solid;
+  border-left: 0px black solid;
   font-family: 'Raleway', sans-serif;
 }
 
