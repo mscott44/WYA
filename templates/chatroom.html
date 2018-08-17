@@ -49,25 +49,25 @@
     <p></p>
     <img class="center" src="https://pikmail.herokuapp.com/{{ email }}?size=100" onerror="imgError(this);"/>
     <section id="console">
-            <div id="user_info">
-                <h2 class="user_info_content" id="user_name">Name: {{ name }}</h2>
-                <h2 class="user_info_content">Username: <span id="username">{{ username }}</span></h2>
+      <div id="user_info">
+          <h2 class="user_info_content" id="user_name">{{ name }}</h2>
+          <h2 class="user_info_content" id="username">@{{ username }}</h2>
+      </div>
 
       <p></p>
 
       <div id="about_content">
         <h1 id="total_title">Total number of users: {{ user_count }}</h1>
         {% for user in users %}
-          <h1 id="target_info">@{{ user.username }}</h1>
+          <p><a href ="/friendprofile?friend={{user.username}}" id="target_info">@{{ user.username }}</a></p>
         {% endfor %}
       </div>
     </section>
-    {{all_users}}
   </section>
 
-  <section id="footer">
-    <p>Where You At ©</p>
-  </section>
+    <section id="footer">
+      <p>Where You At ©</p>
+    </section>
   <script src="/static/main.js"></script>
   <script src="/static/app.js"></script>
   <script> src="https://maps.googleapis.com/maps/api/js?callback=myMap" </script>

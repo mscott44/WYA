@@ -228,6 +228,6 @@ list-style-image: url('/media/favicon.ico');
 /* Set the size of the div element that contains the map */
 #map {
    width: 100%;
-   height: 400px;
+   height: 600px;
    background-color: grey;
 /*list-style-image
