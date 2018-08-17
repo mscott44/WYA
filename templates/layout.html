@@ -20,7 +20,7 @@
           <p><a href="/profile">Profile</a></p>
           <p><a href="/chatroom">Chat</a></p>
           <p><a href="/feed">Feed</a></p>
-          <p><a href="/search">Search</a></p>
+          <p><a href="/information">Information</a></p>
           <p><a href="/explore">Explore</a></p>
           <p><a href="{{ sign_out }}">Sign out</a></p>
       </p>
@@ -32,12 +32,7 @@
 
     <section id="miniprofile">
       <p></p>
-      <img class="center" src="https://pikmail.herokuapp.com/{{ email }}?size=100" onerror="imgError(this);"/>
-      <section id="console">
-        <div id="user_info">
-            <h2 class="user_info_content" id="user_name">{{ name }}</h2>
-            <h2 class="user_info_content" id="username">@{{ username }}</h2>
-        </div>
+      {% block miniprofile %}{% endblock %}
 
         <p></p>
 
@@ -54,6 +49,9 @@
       <p>Where You At ©</p>
     </section>
     <script src="/static/main.js"></script>
+    <script src="/static/app.js"></script>
+    <script> src="https://maps.googleapis.com/maps/api/js?callback=myMap" </script>
+
   </body>
 
 </html>

@@ -1,0 +1,18 @@
+{% extends "templates/layout.html" %}
+{% block content %}
+  <p><h1 class="info">Information</h1></p>
+  <p>Calendars must be public in order to view them on WYA. If you wish to see your own calendar on this website you need to sign in with your gmail account with your main calendar set to public. To make your calendar public you go to this <a href="https://calendar.google.com/calendar/r">link</a> and click on the three dots next to your first calendar under "My Calendars." Go to "Settings and sharing" and check the box labeled "Make available to the public" in the "Access Permissions" box.</p>
+
+
+{% endblock %}
+
+
+{% block miniprofile %}
+<img class="center" src="https://pikmail.herokuapp.com/{{ email }}?size=100" onerror="imgError(this);"/>
+<section id="console">
+    <div id="user_info">
+      <h2 class="user_info_content" id="user_name">{{ name }}</h2>
+      <h2 class="user_info_content" id="username">@{{ username }}</h2>
+    </div>
+</section>
+{% endblock %}

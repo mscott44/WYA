@@ -62,7 +62,8 @@ class ProfileHandler(webapp2.RequestHandler):
             "sign_out": logout_url,
             "email" : current_user.email,
             "users": User.query().order(User.time).fetch(),
-            "user_count": len(User.query().fetch())
+            "user_count": len(User.query().fetch()),
+            "friend": User.query().filter(User.username == self.request.get("friend")).get(),
         }
         profile_template = jinja_current_directory.get_template("templates/profile.html")
         self.response.write(profile_template.render(fields))
@@ -114,7 +115,7 @@ class FeedHandler(webapp2.RequestHandler):
             "username": current_user.username,
             "sign_out": logout_url,
             "email" : current_user.email,
-            "users": User.query().order(User.time).fetch(),
+            "users": User.query().order(-User.time).fetch(),
             "user_count": len(User.query().fetch()),
             "friend": User.query().filter(User.username == self.request.get("friend")).get(),
         }
@@ -130,14 +131,14 @@ class FriendprofileHandler(webapp2.RequestHandler):
             "username": current_user.username,
             "sign_out": logout_url,
             "email" : current_user.email,
-            "users": User.query().order(User.time).fetch(),
+            "users": User.query().order(-User.time).fetch(),
             "user_count": len(User.query().fetch()),
             "friend": User.query().filter(User.username == self.request.get("friend")).get(),
         }
         friendprofile_template = jinja_current_directory.get_template("templates/friendprofile.html")
         self.response.write(friendprofile_template.render(fields))
 
-class SearchHandler(webapp2.RequestHandler):
+class InformationHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
         current_user = User.query().filter(User.email == user.email()).get()
@@ -150,8 +151,8 @@ class SearchHandler(webapp2.RequestHandler):
             "user_count": len(User.query().fetch()),
             "friend": User.query().filter(User.username == self.request.get("friend")).get(),
         }
-        search_template = jinja_current_directory.get_template("templates/search.html")
-        self.response.write(search_template.render(fields))
+        information_template = jinja_current_directory.get_template("templates/information.html")
+        self.response.write(information_template.render(fields))
 
 class ExploreHandler(webapp2.RequestHandler):
     def get(self):
@@ -223,7 +224,7 @@ app = webapp2.WSGIApplication ([
 ('/feed', FeedHandler),
 ('/profile', ProfileHandler),
 ('/friendprofile', FriendprofileHandler),
-('/search', SearchHandler),
+('/information', InformationHandler),
 ('/explore' , ExploreHandler),
 ('/index', CalendarHandler)
 ], debug = True)

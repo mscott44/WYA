@@ -1,48 +1,16 @@
-
-<!DOCTYPE html>
-<html lang"en" dir="ltr">
- <head>
-   <link rel="shortcut icon" href="/media/favicon.png" />
-   <link rel="stylesheet" href="/styles/main.css"/>
-   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-   <meta charset="utf-8">
-
-   <title>Chat</title>
-</head>
-<body>
-  <section id="header">
-    <img id="logo" src="media/logo.png" alt="logo"/>
-    <section id="WhereYouAt">Where You At</section>
-
-  </section>
-  <section id="menu">
-    <p>
-      <p><a href="/profile">Profile</a></p>
-      <p><a href="/chatroom">Chat</a></p>
-      <p><a href="/feed">Feed</a></p>
-      <p><a href="/search">Search</a></p>
-      <p><a href="/explore">Explore</a></p>
-      <p><a href="{{ sign_out }}">Sign out</a></p>
-    </p>
-  </section>
-
-  <section id="main">
-    <p><h1 class="header">Chat</h1></p>
-    <p> To:
+{% extends "templates/layout.html" %}
+{% block content %}
+  <p><h1 class="header">Chat</h1></p>
+  <p> To:
     <select id="userDropdown">
-     {% for user in all_users %}
-        <option>{{ user.username }}</option>
-      {% endfor %}
+    {% for user in all_users %}
+    <option>{{ user.username }}</option>
+    {% endfor %}
     </select>
-    </p>
+  </p>
 
-    <section id="messagessection">
-      <ul class= "leaf" id="messages"> </ul>
-
-    </section>
-    <p></p>
-    <textarea id="message"></textarea>
-    <button id="myButton">Send message</button>
+  <section id="messagessection">
+    <ul class= "leaf" id="messages"> </ul>
   </section>
 
   <section id="miniprofile">
@@ -54,8 +22,11 @@
           <h2 class="user_info_content" id="username">@{{ username }}</h2>
       </div>
 
-      <p></p>
+  <textarea id="message"></textarea>
+  <button id="myButton">Send message</button>
+{% endblock %}
 
+<<<<<<< HEAD
       <div id="about_content">
         <h1 id="total_title">Total number of users: {{ user_count }}</h1>
         {% for user in users %}
@@ -71,6 +42,15 @@
   <script src="/static/main.js"></script>
   <script src="/static/app.js"></script>
   <script> src="https://maps.googleapis.com/maps/api/js?callback=myMap" </script>
+=======
+>>>>>>> cc62393ec2862146426c7a62abe4944638116d21
 
-</body>
-</html>
+{% block miniprofile %}
+<img class="center" src="https://pikmail.herokuapp.com/{{ email }}?size=100" onerror="imgError(this);"/>
+<section id="console">
+    <div id="user_info">
+      <h2 class="user_info_content" id="user_name">{{ name }}</h2>
+      <h2 class="user_info_content" id="username">@{{ username }}</h2>
+    </div>
+</section>
+{% endblock %}
