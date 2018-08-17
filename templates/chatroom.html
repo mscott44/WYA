@@ -13,37 +13,9 @@
     <ul class= "leaf" id="messages"> </ul>
   </section>
 
-  <section id="miniprofile">
-    <p></p>
-    <img class="center" src="https://pikmail.herokuapp.com/{{ email }}?size=100" onerror="imgError(this);"/>
-    <section id="console">
-      <div id="user_info">
-          <h2 class="user_info_content" id="user_name">{{ name }}</h2>
-          <h2 class="user_info_content" id="username">@{{ username }}</h2>
-      </div>
-
   <textarea id="message"></textarea>
   <button id="myButton">Send message</button>
 {% endblock %}
-
-<<<<<<< HEAD
-      <div id="about_content">
-        <h1 id="total_title">Total number of users: {{ user_count }}</h1>
-        {% for user in users %}
-          <p><a href ="/friendprofile?friend={{user.username}}" id="target_info">@{{ user.username }}</a></p>
-        {% endfor %}
-      </div>
-    </section>
-  </section>
-
-    <section id="footer">
-      <p>Where You At ©</p>
-    </section>
-  <script src="/static/main.js"></script>
-  <script src="/static/app.js"></script>
-  <script> src="https://maps.googleapis.com/maps/api/js?callback=myMap" </script>
-=======
->>>>>>> cc62393ec2862146426c7a62abe4944638116d21
 
 {% block miniprofile %}
 <img class="center" src="https://pikmail.herokuapp.com/{{ email }}?size=100" onerror="imgError(this);"/>
