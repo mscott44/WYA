@@ -20,6 +20,11 @@ function getReceiver() {
     dropdown.options[dropdown.selectedIndex].value;
 }
 
+function getSender() {
+  const username = document.querySelector("#username").innerHTML;
+  return username.startsWith("@") ? username.slice(1) : username;
+}
+
 function sendMessageClicked() {
   postMessage().then(function() {
     refreshMessages();
@@ -30,20 +35,21 @@ function postMessage() {
   // Call fetch on the chat api.
   const textarea = document.querySelector('#message');
   const receiver = getReceiver();
-  const sender = document.querySelector("#username").innerHTML;
+  const sender = getSender();
   const message = textarea.value;
 
-  return fetch(`./chat?from=${encodeURI(sender)}&to=${encodeURI(receiver)}&content=${encodeURI(message)}`, {
+  url = `./chat?from=${encodeURI(sender)}&to=${encodeURI(receiver)}&content=${encodeURI(message)}`;
+  console.log('POSTING ' + url);
+  return fetch(url, {
     method: 'POST'
   }).then(function() {
     textarea.value = '';
   });
 }
 
-
 function refreshMessages() {
   const other = getReceiver();
-  const me = document.querySelector("#username").innerHTML;
+  const me = getSender();
   fetch(`./chat?me=${encodeURI(me)}&other=${encodeURI(other)}`)
       .then(function(response) {
         return response.json();

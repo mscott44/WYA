@@ -100,6 +100,7 @@ class ChatroomHandler(webapp2.RequestHandler):
             "sign_out": logout_url,
             "email" : current_user.email,
             "users": User.query().order(User.time).fetch(),
+            "user_count": len(User.query().fetch()),
             "all_users" : all_users,
             "friend": User.query().filter(User.username == self.request.get("friend")).get(),
           }
